@@ -19,7 +19,7 @@ Docs
 Dependencies
 ------------------------------------------------------------------------------
 
-I maintain a list of the [dependencies] that I've mixed into this addon project.
+I maintain a list of the [dependencies](DEPENDENCIES.md) that I've mixed into this addon project.
 
 
 Contributing
