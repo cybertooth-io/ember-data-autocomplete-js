@@ -1,7 +1,7 @@
 ember-data-autocomplete-js
 ==============================================================================
 
-[Short description of the addon.]
+Ember Data driven `autocomplete.js` text input.
 
 
 Compatibility
@@ -11,18 +11,15 @@ Compatibility
 * Ember CLI v2.13 or above
 
 
-Installation
+Docs
 ------------------------------------------------------------------------------
 
-```
-ember install ember-data-autocomplete-js
-```
+[View the docs here](https://cybertooth-io.github.io/ember-data-autocomplete-js/).
 
-
-Usage
+Dependencies
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+I maintain a list of the [dependencies] that I've mixed into this addon project.
 
 
 Contributing
@@ -35,3 +32,11 @@ License
 ------------------------------------------------------------------------------
 
 This project is licensed under the [MIT License](LICENSE.md).
+
+Credits
+------------------------------------------------------------------------------
+
+This addon was made possible with the support of:
+
+1. [Algolia's autocomplete.js](https://github.com/algolia/autocomplete.js)
+1. [EmberMap's ember-data-storefront](https://github.com/embermap/ember-data-storefront)
