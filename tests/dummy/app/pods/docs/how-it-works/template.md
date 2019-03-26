@@ -72,7 +72,7 @@ input.  Below is an example of what a typical action will look like.
   export default class IndexController extends Controller {
     @action onSelected(event, user, dataset, context) {
       // do something with the chosen `user` parameter
-      alert(userInstance.dateOfBirth.toISOString());
+      alert(user.dateOfBirth.toISOString());
       return true;
     }
   }
