@@ -1,0 +1,9 @@
+[ver:1,total:600]
+.gtm/terminal.app:270,1553580000:270,r
+tests/dummy/app/pods/index/template.hbs:102,1553580000:102,r
+CONTRIBUTING.md:84,1553580000:84,m
+DEPLOYING.md:78,1553580000:78,d
+DEPLOYMENT.md:30,1553580000:30,m
+config/deploy.js:12,1553580000:12,r
+README.md:12,1553580000:12,r
+tests/dummy/app/index.html:12,1553580000:12,r
