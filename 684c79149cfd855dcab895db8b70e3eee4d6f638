@@ -1,0 +1,9 @@
+[ver:1,total:1200]
+.gtm/terminal.app:440,1553580000:440,r
+tests/dummy/app/pods/index/template.hbs:380,1553580000:380,m
+tests/dummy/app/index.html:250,1553580000:250,r
+tests/dummy/app/pods/docs/how-it-works/template.md:70,1553580000:70,m
+tests/dummy/public/assets/images/cybertooth.io-wordmark.svg:20,1553580000:20,r
+tests/dummy/app/pods/index/index-content/template.md:20,1553580000:20,r
+tests/dummy/app/pods/docs/quickstart/template.md:10,1553580000:10,r
+tests/dummy/app/pods/docs/index/template.md:10,1553580000:10,r
