@@ -1,8 +1,8 @@
-import { later } from '@ember/runloop';
 /* global autocomplete */
+import { later } from '@ember/runloop';
 import { classNames, layout } from '@ember-decorators/component';
-import { inject as service } from '@ember-decorators/service';
-import { computed } from '@ember-decorators/object';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 import TextField from '@ember/component/text-field';
 import template from './template';
 

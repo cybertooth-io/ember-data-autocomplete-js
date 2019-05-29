@@ -71,25 +71,7 @@ $ yarn unlink ember-data-autocomplete-js
 
 Fork and submit a pull request.
 
-Try to use an emoji to help describe the commit:
-
-* 🎉 Initial Commit
-* 🔖 Version Tag
-* ✨ New Feature
-* 🐛 Bugfix
-* 🔒 Security Fix
-* 📇 Metadata
-* ♻️ Refactoring
-* 📚 Documentation
-* 🌐 Internationalization
-* ♿️ Accessibility
-* 🐎 Performance
-* 🎨 Cosmetic
-* 🔧 Tooling
-* 🚨 Tests
-* 💩 Deprecation
-* 🗑 Removal
-* 🚧 Work In Progress 
+Try to use an emoji to help describe the commit: https://gitmoji.carloscuesta.me/
 
 ## Releasing & Publishing To NPM
 
