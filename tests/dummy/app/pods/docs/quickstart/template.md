@@ -18,7 +18,7 @@ Below is an example of a template.
 And below is an example of the controller's action that raises an alert containing a message
 about the user that was chosen from the autocomplete.js text input.
 
-{{#docs-snippet name="controller.js" title="app/controllers/.../some-route.js"}}
+{{#docs-snippet name="controller.js" title="app/controllers/.../some-controller.js"}}
   // ...
   @action onSelected(event, user/*, dataset, context*/) {
     alert(`You chose ${user.firstName}!!!`);
@@ -26,4 +26,3 @@ about the user that was chosen from the autocomplete.js text input.
   }
   // ...
 {{/docs-snippet}}
-
