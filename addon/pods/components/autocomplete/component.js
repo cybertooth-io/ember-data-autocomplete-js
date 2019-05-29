@@ -6,6 +6,11 @@ import { computed } from '@ember-decorators/object';
 import TextField from '@ember/component/text-field';
 import template from './template';
 
+/**
+ * This `{{autocomplete}}` component is a textbox powered by `autocomplete.js`
+ * and Ember Data's `store` in fetching type ahead completion results that your
+ * user can choose.
+ */
 @classNames('ember-data-autocomplete-js')
 @layout(template)
 export default class Autocomplete extends TextField {
@@ -19,8 +24,9 @@ export default class Autocomplete extends TextField {
    ------------------------------------------------------------------------------------------------------------------ */
 
   /**
-   * The additonal filters
-   * @type {string}
+   * The additional filters
+   * @argument
+   * @type('Hash')
    */
   additionalFilters = {};
 
@@ -31,22 +37,34 @@ export default class Autocomplete extends TextField {
   /**
    * The comma separated list of dasherized relationship names that should be side-loaded
    * (included) in the JSONAPI payload response.
-   * @type {string}
+   *
+   * @argument
+   * @type {String}
    */
   include = '';
 
   /**
    * The name of the Ember Data model that will be used by the `store`.
-   * @type {string} For example: `user`
+   *
+   * @argument
+   * @type {String}
    */
   modelName = '';
 
+  /**
+   * What `sort` criteria do you want to pass to the store's query?
+   *
+   * @argument
+   * @type {string}
+   */
   sort = '';
 
   suggestion = undefined;
 
   /**
    * The globalOptions for the autocomplete initialization.
+   * TODO: should these be merge-able?
+   *
    * @see https://github.com/algolia/autocomplete.js#global-options
    * @link https://github.com/algolia/autocomplete.js#global-options
    * @type {{}}
