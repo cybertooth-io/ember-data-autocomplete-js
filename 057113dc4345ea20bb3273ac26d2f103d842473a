@@ -1,0 +1,8 @@
+[ver:1,total:1320]
+DEPENDENCIES.md:412,1559156400:412,m
+config/ember-try.js:312,1559152800:40,1559156400:272,m
+package.json:192,1559156400:192,m
+.gtm/terminal.app:180,1559152800:150,1559156400:30,r
+CONTRIBUTING.md:170,1559152800:170,r
+tests/dummy/app/pods/docs/quickstart/template.md:30,1559156400:30,m
+config/deploy.js:24,1559156400:24,r
