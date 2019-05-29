@@ -36,9 +36,7 @@ When upgrading this add-on, after successfully performing `ember init` use the f
 commands to install the following dependencies required by this add-on.
 
 ```bash
-ember install ember-auto-import
-ember install ember-concurrency
-yarn add @aws-amplify/auth @aws-amplify/core ember-simple-auth
+ember install ember-data-autocomplete-js
 ```
 
 ## Linking This Add-on For Local Testing
