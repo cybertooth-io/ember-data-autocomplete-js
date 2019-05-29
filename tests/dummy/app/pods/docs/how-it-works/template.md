@@ -42,7 +42,7 @@ Let's say in your Ember Data world you have a `User` model.
 Perhaps you want to choose a user from an autocomplete text box, below is an example
 of the component you'd invoke from your template.
 
-{{#docs-snippet name="template.hbs" title="app/templates/some-route.hbs"}}
+{{#docs-snippet name="template.hbs" title="app/templates/.../somewhere.hbs"}}
   Autocomplete 
     @displayKey="fullName"
     @filter="by_name_search" 
@@ -65,7 +65,7 @@ input.  Below is an example of what a typical action will look like.
 
 <p/>
 
-{{#docs-snippet name="controller.js" title="app/controllers/some-route.js"}}
+{{#docs-snippet name="controller.js" title="app/controllers/.../somewhere.js"}}
   import { action } from '@ember-decorators/object'
   import Controller from '@ember/controller';
   
@@ -81,7 +81,7 @@ input.  Below is an example of what a typical action will look like.
 ## Autocomplete Component's Use Of The Store
 
 So what happened to populate the autocomplete options?  Effectively, the Ember Data
-`store` was called upon to perform a
+`store` was called upon to perform a Ember Storefront's
 [`loadRecords`](https://embermap.github.io/ember-data-storefront/docs/api/mixins/loadable-store#loadRecords)
 (basically an Ember Data 
 [`query`](https://api.emberjs.com/ember-data/release/classes/DS.Store/methods/query?anchor=query)).

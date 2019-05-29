@@ -6,6 +6,11 @@
 # https://github.com/ember-learn/ember-cli-addon-docs
 ember install ember-cli-addon-docs
 
+# To mock some data for demo and acceptance tests
+# Docs: https://www.ember-cli-mirage.com/
+# https://github.com/samselikoff/ember-cli-mirage
+ember install ember-cli-mirage
+
 # Ember Data ... obvious?
 # https://github.com/emberjs/data
 ember install ember-data

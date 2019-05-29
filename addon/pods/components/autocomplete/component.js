@@ -18,25 +18,51 @@ export default class Autocomplete extends TextField {
   /** Services
    ------------------------------------------------------------------------------------------------------------------ */
 
+  /**
+   * The Ember Data `store` service that is used to query the data.
+   *
+   * @private
+   * @type {DS.Store}
+   */
   @service store;
 
   /** Fields
    ------------------------------------------------------------------------------------------------------------------ */
 
   /**
-   * The additional filters
+   * A hash containing any additional filters that may be required to filter the returned
+   * autocomplete results.
+   *
+   * ```handlebars
+   * <Autocomplete ... @additionalFilters=(hash by_active=true) ... />
+   * ```
+   *
    * @argument
    * @type('Hash')
    */
   additionalFilters = {};
 
+  /**
+   * The name of the filter that will be passed whatever the user keys into the textbox.
+   *
+   * ```handlebars
+   * <Autocomplete ... @filter="by_name_search" ... />
+   * ```
+   *
+   * @argument
+   * @type {string}
+   */
   filter = '';
 
   displayKey = 'id';
 
   /**
-   * The comma separated list of dasherized relationship names that should be side-loaded
-   * (included) in the JSONAPI payload response.
+   * The comma separated list of _dasherized_ relationship names that should be side-loaded
+   * (included) in the JSON-API payload response.
+   *
+   * ```handlebars
+   * <Autocomplete ... @include="roles" ... />
+   * ```
    *
    * @argument
    * @type {String}
@@ -44,7 +70,11 @@ export default class Autocomplete extends TextField {
   include = '';
 
   /**
-   * The name of the Ember Data model that will be used by the `store`.
+   * The _dasherized_ Ember Data model name that will be queried for autocomplete results.
+   *
+   * ```handlebars
+   * <Autocomplete ... @modelName="user" ... />
+   * ```
    *
    * @argument
    * @type {String}
@@ -52,10 +82,15 @@ export default class Autocomplete extends TextField {
   modelName = '';
 
   /**
-   * What `sort` criteria do you want to pass to the store's query?
+   * The comma separated list of _dasherized_ attribute names that will be used to sort the
+   * results server side.
+   *
+   * ```handlebars
+   * <Autocomplete ... @sort="last-name,first-name,email" ... />
+   * ```
    *
    * @argument
-   * @type {string}
+   * @type {String}
    */
   sort = '';
 
@@ -244,6 +279,12 @@ export default class Autocomplete extends TextField {
     }
   }
 
+  /**
+   * Responsible for locating this component's `<input>` element and passing it
+   * to Algolia's `autocomplete.js` library for initialisation.
+   *
+   * @private
+   */
   _initializeAutocomplete() {
     const self = this;
     this._autocompleteInstance = autocomplete(this._selector, this.globalOptions, [{
