@@ -1,0 +1,9 @@
+[ver:1,total:1920]
+addon/pods/components/autocomplete/component.js:775,1559149200:410,1559152800:365,m
+.gtm/terminal.app:355,1559149200:210,1559152800:145,r
+CONTRIBUTING.md:345,1559152800:345,m
+package.json:185,1559149200:130,1559152800:55,m
+config/deploy.js:160,1559152800:160,r
+DEPLOYMENT.md:60,1559149200:60,r
+DEPENDENCIES.md:25,1559149200:15,1559152800:10,m
+tests/dummy/config/environment.js:15,1559149200:15,r
