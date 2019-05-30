@@ -1,6 +1,6 @@
 {
   "name": "ember-data-autocomplete-js",
-  "version": "0.0.1-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Ember Data driven autocomplete.js text input.",
   "keywords": [
     "ember-addon",
@@ -91,6 +91,5 @@
     "demoURL": "https://cybertooth-io.github.io/ember-data-autocomplete-js/"
   },
   "homepage": "https://cybertooth-io.github.io/ember-data-autocomplete-js",
-  "peerDependencies": {
-  }
+  "peerDependencies": {}
 }
