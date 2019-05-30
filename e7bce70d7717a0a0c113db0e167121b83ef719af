@@ -1,0 +1,5 @@
+[ver:1,total:480]
+addon/pods/components/autocomplete/component.js:300,1559246400:300,m
+.gtm/terminal.app:120,1559246400:120,r
+tests/dummy/app/pods/docs/demos/index/template.hbs:40,1559246400:40,m
+tests/dummy/app/pods/docs/template.hbs:20,1559246400:20,r
