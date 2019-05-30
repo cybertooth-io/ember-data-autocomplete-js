@@ -1,8 +1,7 @@
 import DS from 'ember-data';
-import { attr } from '@ember-decorators/data';
-import { computed } from '@ember-decorators/object'
+import { computed } from '@ember/object'
 
-const { Model } = DS;
+const { attr, Model } = DS;
 
 export default class UserModel extends Model {
 
@@ -11,14 +10,14 @@ export default class UserModel extends Model {
 
   @attr('boolean') active;
   @attr('date') dateOfBirth;
-  @attr email;
-  @attr firstName;
-  @attr lastName;
+  @attr('string') email;
+  @attr('string') firstName;
+  @attr('string') lastName;
 
   /** Computed
    ------------------------------------------------------------------------------------------------------------------ */
 
-  @computed('firstName', 'lastName') fullName() {
+  @computed('firstName', 'lastName') get fullName() {
     return `${this.firstName} ${this.lastName}`;
   }
 }

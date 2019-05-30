@@ -1,10 +1,19 @@
 # Dependencies
 
 ```bash
+# Effortlessly import autocomplete.js and faker
+# https://github.com/ef4/ember-auto-import
+ember install ember-auto-import
+
 # For documenting this addon; using es-doc
 # Docs: https://ember-learn.github.io/ember-cli-addon-docs
 # https://github.com/ember-learn/ember-cli-addon-docs
 ember install ember-cli-addon-docs
+
+# To mock some data for demo and acceptance tests
+# Docs: https://www.ember-cli-mirage.com/
+# https://github.com/samselikoff/ember-cli-mirage
+ember install ember-cli-mirage
 
 # Ember Data ... obvious?
 # https://github.com/emberjs/data
@@ -28,4 +37,7 @@ ember install ember-decorators-polyfill
 # https://github.com/algolia/autocomplete.js
 yarn add autocomplete.js
 
+# Fake some user data for testing
+# https://github.com/marak/Faker.js/
+yarn add -P faker
 ```
