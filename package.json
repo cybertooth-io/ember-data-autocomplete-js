@@ -88,7 +88,7 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://cybertooth-io.github.io/ember-data-autocomplete-js/demos/users-by-name-search"
+    "demoURL": "https://cybertooth-io.github.io/ember-data-autocomplete-js/"
   },
   "homepage": "https://cybertooth-io.github.io/ember-data-autocomplete-js",
   "peerDependencies": {

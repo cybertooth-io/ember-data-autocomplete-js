@@ -13,5 +13,5 @@
 1. `ember-data` is installed *or upgraded*.  If you don't want the upgrade make sure
 to edit your `package.json` `devDependencies` rolling back the new `ember-data` version
 number.
-1. `ember-data-storefront` is installed because we use the `loadRecords` method that
-to perform queries on your model.
+1. `ember-data-storefront` is installed because we use its clever `loadRecords` 
+method to perform queries that populate the autocomplete suggestions.

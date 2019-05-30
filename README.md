@@ -31,6 +31,6 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 This addon was made possible with the support of:
 
-1. [Ember Data](https://github.com/emberjs/data)
 1. [Algolia's autocomplete.js](https://github.com/algolia/autocomplete.js)
+1. [Ember Data](https://github.com/emberjs/data)
 1. [EmberMap's ember-data-storefront](https://github.com/embermap/ember-data-storefront)

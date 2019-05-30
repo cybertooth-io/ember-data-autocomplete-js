@@ -52,8 +52,9 @@ export default class Autocomplete extends TextField {
   /**
    * Required.  Defaults to `"id"`.
    *
-   * The derived value that will be set in the texbox upon choosing an item.  If the `suggestion` is
-   * not supplied value will also be presented in the selection list that appears beneath the textbox.
+   * The derived value that will be set in the texbox upon choosing an item.  If the `suggestion`
+   * argument is not supplied, then the `displayKey` derived value will also be presented in
+   * the suggestions list that appears beneath the autocomplete textbox.
    *
    * @argument
    * @type {String|function}
@@ -212,6 +213,18 @@ export default class Autocomplete extends TextField {
 
   /** Computed
    ------------------------------------------------------------------------------------------------------------------ */
+  /**
+   * DO NOT TOUCH.
+   *
+   * The Autocomplete instance that is created on `didInsertElement`.
+   *
+   * @private
+   * @type {Autocomplete}
+   */
+  _autocompleteInstance = null;
+
+  /** Actions
+   ------------------------------------------------------------------------------------------------------------------ */
 
   /**
    * The html `#id` selector of this component used to instantiate the `Autocomplete` instance.
@@ -222,9 +235,6 @@ export default class Autocomplete extends TextField {
   @computed('elementId') get _selector() {
     return `#${this.elementId}`;
   }
-
-  /** Actions
-   ------------------------------------------------------------------------------------------------------------------ */
 
   /**
    * Triggered when the query is autocompleted. Autocompleted means the query was changed to the hint.
@@ -352,6 +362,9 @@ export default class Autocomplete extends TextField {
     this._initializeAutocomplete();
   }
 
+  /** Private
+   ------------------------------------------------------------------------------------------------------------------ */
+
   /**
    * Destroy the #_autocompleteInstance instance that was created during #didInsertElement.
    */
@@ -359,19 +372,6 @@ export default class Autocomplete extends TextField {
     this._autocompleteInstance.autocomplete.destroy();
     super.willDestroy(...arguments);
   }
-
-  /** Private
-   ------------------------------------------------------------------------------------------------------------------ */
-
-  /**
-   * DO NOT TOUCH.
-   *
-   * The Autocomplete instance that is created on `didInsertElement`.
-   *
-   * @private
-   * @type {Autocomplete}
-   */
-  _autocompleteInstance = null;
 
   /**
    * Fixes Ember's weird bug where autofocus can't be re-triggered on subsequent transitions.
