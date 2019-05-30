@@ -189,15 +189,15 @@ workflows:
       - test_canary:
           requires:
             - yarn_and_cache
-      - test_lts_2_18:
-          requires:
-            - yarn_and_cache
-      - test_lts_2_16:
-          requires:
-            - yarn_and_cache
-      - test_lts_2_12:
-          requires:
-            - yarn_and_cache
+#      - test_lts_2_18:
+#          requires:
+#            - yarn_and_cache
+#      - test_lts_2_16:
+#          requires:
+#            - yarn_and_cache
+#      - test_lts_2_12:
+#          requires:
+#            - yarn_and_cache
 #    - test_lts_2_8:
 #        requires:
 #        - yarn_and_cache

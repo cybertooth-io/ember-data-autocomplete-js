@@ -1,11 +1,14 @@
-:root {
-  --brand-primary: #0095DA;
-}
+# Styling
 
-.js-ember-data-logo > svg {
-  height: 1em;
-}
+Styling is trivial and is up to you.
 
+Algolia `autocomplete.js` gives you a helping hand in their 
+[look and feel page](https://github.com/algolia/autocomplete.js/blob/master/README.md#look-and-feel).
+
+Poaching from their site, simply add this to your `app/styles/app.css` (or `app/styles/app.scss` if you're
+using SASS:
+
+```css
 .algolia-autocomplete {
   width: 100%;
 }
@@ -38,3 +41,4 @@
   font-weight: bold;
   font-style: normal;
 }
+```
