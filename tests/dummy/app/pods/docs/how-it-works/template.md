@@ -31,7 +31,7 @@ Let's say in your Ember Data world you have a `User` model.
     /** Computed
      ------------------------------------------------- */
   
-    @computed('firstName', 'lastName') fullName() {
+    @computed('firstName', 'lastName') get fullName() {
       return `${this.firstName} ${this.lastName}`;
     }
   }
