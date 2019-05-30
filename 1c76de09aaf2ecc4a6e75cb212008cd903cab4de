@@ -1,0 +1,8 @@
+[ver:1,total:720]
+tests/dummy/app/pods/docs/demos/index/template.hbs:305,1559246400:250,1559250000:55,m
+.gtm/terminal.app:265,1559246400:210,1559250000:55,r
+addon/pods/components/autocomplete/component.js:90,1559250000:90,m
+DEPENDENCIES.md:30,1559250000:30,m
+CONTRIBUTING.md:20,1559246400:20,r
+tests/dummy/app/styles/app.css:5,1559250000:5,m
+index.js:5,1559250000:5,m
