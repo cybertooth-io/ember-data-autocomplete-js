@@ -212,16 +212,6 @@ export default class Autocomplete extends TextField {
 
   /** Computed
    ------------------------------------------------------------------------------------------------------------------ */
-  /**
-   * The Autocomplete instance that is created on `didInsertElement`.
-   *
-   * @private
-   * @type {Autocomplete}
-   */
-  _autocompleteInstance = null;
-
-  /** Actions
-   ------------------------------------------------------------------------------------------------------------------ */
 
   /**
    * The html `#id` selector of this component used to instantiate the `Autocomplete` instance.
@@ -233,11 +223,15 @@ export default class Autocomplete extends TextField {
     return `#${this.elementId}`;
   }
 
+  /** Actions
+   ------------------------------------------------------------------------------------------------------------------ */
+
   /**
    * Triggered when the query is autocompleted. Autocompleted means the query was changed to the hint.
    * The event handler will be invoked with 3 arguments: the jQuery event object, the suggestion
    * object, and the name of the dataset the suggestion belongs to.
    *
+   * @emits {autocompleted}
    * @see https://github.com/algolia/autocomplete.js#events
    * @type {Action}
    */
@@ -248,6 +242,7 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when the dropdown menu of the autocomplete is closed.
    *
+   * @emits {closed}
    * @see https://github.com/algolia/autocomplete.js#events
    * @type {Action}
    */
@@ -260,8 +255,9 @@ export default class Autocomplete extends TextField {
    * handler will be invoked with 3 arguments: the jQuery event object, the suggestion object, and
    * the name of the dataset the suggestion belongs to.
    *
-   * @action
+   * @emits {cursorChanged}
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   cursorChanged() {
     // override accordingly
@@ -270,8 +266,9 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when the cursor leaves the selections or its current index is lower than 0.
    *
-   * @action
+   * @emits {cursorRemoved}
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   cursorRemoved() {
     // override accordingly
@@ -280,7 +277,9 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when all datasets are empty.
    *
+   * @emits {empty}
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   empty(/*event*/) {
     // override accordingly
@@ -289,7 +288,9 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when the dropdown menu of the autocomplete is opened.
    *
+   * @emits {opened}
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   opened(/*event*/) {
     // override accordingly
@@ -298,7 +299,9 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when appendTo is used and the wrapper is resized/repositionned.
    *
+   * @emits {redrawn}
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   redrawn() {
     // override accordingly
@@ -310,8 +313,9 @@ export default class Autocomplete extends TextField {
    * dataset the suggestion belongs to and a context object. The context contains a .selectionMethod
    * key that can be either click, enterKey, tabKey or blur, depending how the suggestion was selected.
    *
-   * @emits {selected} the
+   * @emits {selected} when a suggestion is selected
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   selected(/*event, chosenItem, dataSetNameOrNumber, context*/) {
     // override accordingly
@@ -320,7 +324,9 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when the dropdown menu of the autocomplete is shown (opened and non-empty).
    *
+   * @emits {shown} when the dropdown menu of the autocomplete is shown
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   shown(/*event*/) {
     // override accordingly
@@ -329,7 +335,9 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when a dataset is rendered.
    *
+   * @emits {updated} when a dataset is rendered
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   updated(/*event*/) {
     // override accordingly
@@ -344,9 +352,6 @@ export default class Autocomplete extends TextField {
     this._initializeAutocomplete();
   }
 
-  /** Private
-   ------------------------------------------------------------------------------------------------------------------ */
-
   /**
    * Destroy the #_autocompleteInstance instance that was created during #didInsertElement.
    */
@@ -354,6 +359,19 @@ export default class Autocomplete extends TextField {
     this._autocompleteInstance.autocomplete.destroy();
     super.willDestroy(...arguments);
   }
+
+  /** Private
+   ------------------------------------------------------------------------------------------------------------------ */
+
+  /**
+   * DO NOT TOUCH.
+   *
+   * The Autocomplete instance that is created on `didInsertElement`.
+   *
+   * @private
+   * @type {Autocomplete}
+   */
+  _autocompleteInstance = null;
 
   /**
    * Fixes Ember's weird bug where autofocus can't be re-triggered on subsequent transitions.
