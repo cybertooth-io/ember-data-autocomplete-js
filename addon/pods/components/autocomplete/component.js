@@ -1,11 +1,11 @@
 /** @documenter esdoc */
 
-/* global autocomplete */
 import { isPresent } from '@ember/utils';
 import { later } from '@ember/runloop';
 import { classNames, layout } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
+import autocomplete from 'autocomplete.js'
 import TextField from '@ember/component/text-field';
 import template from './template';
 
