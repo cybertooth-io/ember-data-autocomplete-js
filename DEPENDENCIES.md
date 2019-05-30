@@ -33,4 +33,7 @@ ember install ember-decorators-polyfill
 # https://github.com/algolia/autocomplete.js
 yarn add autocomplete.js
 
+# Fake some user data for testing
+# https://github.com/marak/Faker.js/
+yarn add -D faker
 ```

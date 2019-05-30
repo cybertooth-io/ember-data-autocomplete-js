@@ -1,4 +1,7 @@
+/** @documenter esdoc */
+
 /* global autocomplete */
+import { isPresent } from '@ember/utils';
 import { later } from '@ember/runloop';
 import { classNames, layout } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
@@ -10,6 +13,8 @@ import template from './template';
  * This `{{autocomplete}}` component is a textbox powered by `autocomplete.js`
  * and Ember Data's `store` in fetching type ahead completion results that your
  * user can choose.
+ *
+ * @extends {TextField}
  */
 @classNames('ember-data-autocomplete-js')
 @layout(template)
@@ -21,15 +26,17 @@ export default class Autocomplete extends TextField {
   /**
    * The Ember Data `store` service that is used to query the data.
    *
-   * @private
+   * @access private
    * @type {DS.Store}
    */
   @service store;
 
-  /** Fields
+  /** Arguments
    ------------------------------------------------------------------------------------------------------------------ */
 
   /**
+   * Optional.
+   *
    * A hash containing any additional filters that may be required to filter the returned
    * autocomplete results.
    *
@@ -38,11 +45,24 @@ export default class Autocomplete extends TextField {
    * ```
    *
    * @argument
-   * @type('Hash')
+   * @type {Hash}
    */
   additionalFilters = {};
 
   /**
+   * Required.  Defaults to `"id"`.
+   *
+   * The derived value that will be set in the texbox upon choosing an item.  If the `suggestion` is
+   * not supplied value will also be presented in the selection list that appears beneath the textbox.
+   *
+   * @argument
+   * @type {String|function}
+   */
+  displayKey = 'id';
+
+  /**
+   * Required.
+   *
    * The name of the filter that will be passed whatever the user keys into the textbox.
    *
    * ```handlebars
@@ -50,13 +70,13 @@ export default class Autocomplete extends TextField {
    * ```
    *
    * @argument
-   * @type {string}
+   * @type {String}
    */
   filter = '';
 
-  displayKey = 'id';
-
   /**
+   * Optional.
+   *
    * The comma separated list of _dasherized_ relationship names that should be side-loaded
    * (included) in the JSON-API payload response.
    *
@@ -70,6 +90,8 @@ export default class Autocomplete extends TextField {
   include = '';
 
   /**
+   * Required.
+   *
    * The _dasherized_ Ember Data model name that will be queried for autocomplete results.
    *
    * ```handlebars
@@ -82,6 +104,23 @@ export default class Autocomplete extends TextField {
   modelName = '';
 
   /**
+   * Required.  Experimental.
+   *
+   * You can control how many records are being returned by your JSON-API
+   * endpoint by passing the page size.
+   *
+   * @argument
+   * @experimental
+   * @type {{number: number, size: number}}
+   */
+  page = {
+    number: 1,
+    size: 10
+  };
+
+  /**
+   * Optional.
+   *
    * The comma separated list of _dasherized_ attribute names that will be used to sort the
    * results server side.
    *
@@ -94,15 +133,47 @@ export default class Autocomplete extends TextField {
    */
   sort = '';
 
+  /**
+   * Optional.
+   *
+   * The suggestion value that will be rendered in the list of options that
+   * appears beneath the autocomplete textbox.  We suggest wrapping your
+   * value with `<p>` tag.
+   *
+   * The best was to implement this function is in the `Component`
+   * or `Controller` of the template that this <Autocomplete/> is being
+   * rendered in.
+   *
+   * For example:
+   *
+   * ```javascript
+   *  // app/controllers/.../somewhere.js
+   *  suggestByFirstAndLastName: function(model) {
+   *    return `<p>${model.firstName} ${model.lastName}</p>`;
+   *  }
+   * ```
+   *
+   * ```handlebars
+   *  <Autocomplete ... @suggestion=suggestByFirstAndLastName/>
+   * ```
+   *
+   * @argument
+   * @param {Object} model - the model instance the was retrieved by the search that you
+   * can use to create the suggestion
+   * @type {function}
+   * @return {String} the suggestion value wrapped in a `<p>` element.
+   */
   suggestion = undefined;
 
   /**
-   * The globalOptions for the autocomplete initialization.
+   * The [globalOptions](https://github.com/algolia/autocomplete.js#global-options) for
+   * the autocomplete initialization.
+   *
    * TODO: should these be merge-able?
    *
+   * @argument
    * @see https://github.com/algolia/autocomplete.js#global-options
-   * @link https://github.com/algolia/autocomplete.js#global-options
-   * @type {{}}
+   * @type {{dropdownMenuContainer: null, keyboardShortcuts: Array, debug: boolean, cssClasses: {cursor: string, dropdownMenu: string, input: string, prefix: string, hint: string, root: string, suggestion: string, suggestions: string, dataset: string, noPrefix: boolean, empty: string}, minLength: number, templates: {dropdownMenu: null, footer: null, header: null, empty: null}, tabAutocomplete: boolean, ariaLabel: null, clearOnSelected: boolean, autoselectOnBlur: boolean, openOnFocus: boolean, hint: boolean, appendTo: null, autoWidth: boolean, autoselect: boolean}}
    */
   globalOptions = {
     appendTo: null,
@@ -139,19 +210,24 @@ export default class Autocomplete extends TextField {
     }
   };
 
-  /** Methods
+  /** Computed
    ------------------------------------------------------------------------------------------------------------------ */
   /**
-   * The Autocomplete instance that is created on #didInsertElement.
-   * @type {Autocomplete}
+   * The Autocomplete instance that is created on `didInsertElement`.
+   *
    * @private
+   * @type {Autocomplete}
    */
   _autocompleteInstance = null;
 
+  /** Actions
+   ------------------------------------------------------------------------------------------------------------------ */
+
   /**
    * The html `#id` selector of this component used to instantiate the `Autocomplete` instance.
-   * @return {string}
+   *
    * @private
+   * @return {string}
    */
   @computed('elementId') get _selector() {
     return `#${this.elementId}`;
@@ -163,6 +239,7 @@ export default class Autocomplete extends TextField {
    * object, and the name of the dataset the suggestion belongs to.
    *
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   autocompleted() {
     // override accordingly
@@ -172,6 +249,7 @@ export default class Autocomplete extends TextField {
    * Triggered when the dropdown menu of the autocomplete is closed.
    *
    * @see https://github.com/algolia/autocomplete.js#events
+   * @type {Action}
    */
   closed() {
     // override accordingly
@@ -182,6 +260,7 @@ export default class Autocomplete extends TextField {
    * handler will be invoked with 3 arguments: the jQuery event object, the suggestion object, and
    * the name of the dataset the suggestion belongs to.
    *
+   * @action
    * @see https://github.com/algolia/autocomplete.js#events
    */
   cursorChanged() {
@@ -191,16 +270,11 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when the cursor leaves the selections or its current index is lower than 0.
    *
+   * @action
    * @see https://github.com/algolia/autocomplete.js#events
    */
   cursorRemoved() {
     // override accordingly
-  }
-
-  didInsertElement() {
-    super.didInsertElement(...arguments);
-    this._fixAutofocus();
-    this._initializeAutocomplete();
   }
 
   /**
@@ -236,6 +310,7 @@ export default class Autocomplete extends TextField {
    * dataset the suggestion belongs to and a context object. The context contains a .selectionMethod
    * key that can be either click, enterKey, tabKey or blur, depending how the suggestion was selected.
    *
+   * @emits {selected} the
    * @see https://github.com/algolia/autocomplete.js#events
    */
   selected(/*event, chosenItem, dataSetNameOrNumber, context*/) {
@@ -251,9 +326,6 @@ export default class Autocomplete extends TextField {
     // override accordingly
   }
 
-  /** Private
-   ------------------------------------------------------------------------------------------------------------------ */
-
   /**
    * Triggered when a dataset is rendered.
    *
@@ -263,14 +335,31 @@ export default class Autocomplete extends TextField {
     // override accordingly
   }
 
+  /** Methods
+   ------------------------------------------------------------------------------------------------------------------ */
+
+  didInsertElement() {
+    super.didInsertElement(...arguments);
+    this._fixAutofocus();
+    this._initializeAutocomplete();
+  }
+
+  /** Private
+   ------------------------------------------------------------------------------------------------------------------ */
+
   /**
    * Destroy the #_autocompleteInstance instance that was created during #didInsertElement.
    */
   willDestroy() {
     this._autocompleteInstance.autocomplete.destroy();
-    super.willDestroy();
+    super.willDestroy(...arguments);
   }
 
+  /**
+   * Fixes Ember's weird bug where autofocus can't be re-triggered on subsequent transitions.
+   *
+   * @private
+   */
   _fixAutofocus() {
     if (this.element.getAttributeNames().includes('autofocus')) {
       later(1, () => {
@@ -284,6 +373,7 @@ export default class Autocomplete extends TextField {
    * to Algolia's `autocomplete.js` library for initialisation.
    *
    * @private
+   * @todo debounce the key strong in the `source` function
    */
   _initializeAutocomplete() {
     const self = this;
@@ -291,17 +381,8 @@ export default class Autocomplete extends TextField {
       displayKey: this.displayKey,
       name: `dataset-id-${this.elementId}`,
       source: function (query, callback) {
-        const filterHash = self.additionalFilters;
-        filterHash[self.filter] = query;
-        callback(
-          self.store.loadRecords(
-            self.modelName, {
-              filter: filterHash,
-              include: self.include,
-              sort: self.sort
-            })
-            .toArray()
-        );
+        // TODO: debounce?
+        self.store.query(self.modelName, self._queryOptions(query)).then(response => callback(response.toArray()));
       },
       templates: {
         suggestion: this.suggestion ? this.suggestion : null
@@ -317,5 +398,29 @@ export default class Autocomplete extends TextField {
       .on('autocomplete:selected', this.selected)
       .on('autocomplete:shown', this.shown)
       .on('autocomplete:updated', this.updated);
+  }
+
+  /**
+   * @param {String} filterValue - the textbox value
+   * @private
+   * @todo unit tests of this
+   */
+  _queryOptions(filterValue) {
+    const queryOptions = { filter: {} };
+    queryOptions.filter[this.filter] = filterValue;
+    if (isPresent(this.additionalFilters)) {
+      Object.assign(queryOptions.filter, this.additionalFilters);
+    }
+    if (isPresent(this.include)) {
+      queryOptions.include = this.include;
+    }
+    if (isPresent(this.page)) {
+      queryOptions.page = this.page;
+    }
+    if (isPresent(this.sort)) {
+      queryOptions.sort = this.sort;
+    }
+
+    return queryOptions;
   }
 }

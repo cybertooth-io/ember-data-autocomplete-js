@@ -10,9 +10,9 @@ export default class UserModel extends Model {
 
   @attr('boolean') active;
   @attr('date') dateOfBirth;
-  @attr email;
-  @attr firstName;
-  @attr lastName;
+  @attr('string') email;
+  @attr('string') firstName;
+  @attr('string') lastName;
 
   /** Computed
    ------------------------------------------------------------------------------------------------------------------ */
