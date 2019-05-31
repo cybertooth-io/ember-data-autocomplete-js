@@ -6,7 +6,8 @@ module.exports = {
       packages: [
         { name: 'ember-auto-import' },
         { name: 'ember-data' },
-        { name: 'ember-data-storefront' }
+        { name: 'ember-data-storefront' },
+        { name: 'ember-decorators' }
       ]
     }).then(() => {
       return this.addPackagesToProject([{

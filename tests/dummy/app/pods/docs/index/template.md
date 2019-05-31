@@ -15,3 +15,4 @@ to edit your `package.json` `devDependencies` rolling back the new `ember-data` 
 number.
 1. `ember-data-storefront` is installed because we use its clever `loadRecords` 
 method to perform queries that populate the autocomplete suggestions.
+1. `ember-decorators` is installed because we use native classes to define this component.

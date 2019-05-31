@@ -362,9 +362,6 @@ export default class Autocomplete extends TextField {
     this._initializeAutocomplete();
   }
 
-  /** Private
-   ------------------------------------------------------------------------------------------------------------------ */
-
   /**
    * Destroy the #_autocompleteInstance instance that was created during #didInsertElement.
    */
@@ -372,6 +369,9 @@ export default class Autocomplete extends TextField {
     this._autocompleteInstance.autocomplete.destroy();
     super.willDestroy(...arguments);
   }
+
+  /** Private
+   ------------------------------------------------------------------------------------------------------------------ */
 
   /**
    * Fixes Ember's weird bug where autofocus can't be re-triggered on subsequent transitions.
@@ -400,7 +400,9 @@ export default class Autocomplete extends TextField {
       name: `dataset-id-${this.elementId}`,
       source: function (query, callback) {
         // TODO: debounce?
-        self.store.query(self.modelName, self._queryOptions(query)).then(response => callback(response.toArray()));
+        self.store
+          .loadRecords(self.modelName, self._queryOptions(query))
+          .then(response => callback(response.toArray()));
       },
       templates: {
         suggestion: this.suggestion ? this.suggestion : null
