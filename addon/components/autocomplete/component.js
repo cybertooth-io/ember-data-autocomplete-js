@@ -362,6 +362,9 @@ export default class Autocomplete extends TextField {
     this._initializeAutocomplete();
   }
 
+  /** Private
+   ------------------------------------------------------------------------------------------------------------------ */
+
   /**
    * Destroy the #_autocompleteInstance instance that was created during #didInsertElement.
    */
@@ -369,9 +372,6 @@ export default class Autocomplete extends TextField {
     this._autocompleteInstance.autocomplete.destroy();
     super.willDestroy(...arguments);
   }
-
-  /** Private
-   ------------------------------------------------------------------------------------------------------------------ */
 
   /**
    * Fixes Ember's weird bug where autofocus can't be re-triggered on subsequent transitions.

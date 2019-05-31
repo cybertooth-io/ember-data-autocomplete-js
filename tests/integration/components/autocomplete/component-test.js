@@ -7,20 +7,11 @@ module('Integration | Component | autocomplete', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    await render(hbs`<Autocomplete/>`);
 
-    await render(hbs`<Autocomplete />`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <Autocomplete>
-        template block text
-      </Autocomplete>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.getElementsByClassName('algolia-autocomplete').length, 1,
+      'Should be wrapped by autocomplete span');
+    assert.equal(this.element.getElementsByClassName('ember-data-autocomplete-js').length, 2,
+      'Should be two inputs: one for the hint & one for the typed values');
   });
 });
