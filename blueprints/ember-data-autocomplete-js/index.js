@@ -11,8 +11,8 @@ module.exports = {
       ]
     }).then(() => {
       return this.addPackagesToProject([{
-        name: 'autocomplete.js',
-        version: '^0.36.0'
+        name: 'autocomplete.js-cybertooth.io',
+        version: '0.36.0-cybertooth.1'
       }])
     });
   },

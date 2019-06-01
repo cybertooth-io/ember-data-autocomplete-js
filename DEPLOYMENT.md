@@ -1,5 +1,11 @@
 # Deployment
 
+## Addon To NPM
+
+`yarn publish`
+
+## Docs
+
 Typically run:
 
 ```bash
