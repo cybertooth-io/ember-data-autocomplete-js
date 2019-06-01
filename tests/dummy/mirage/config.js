@@ -1,3 +1,5 @@
+import { isPresent } from '@ember/utils';
+
 export default function () {
 
   // These comments are here to help you get started. Feel free to delete them.
@@ -26,8 +28,22 @@ export default function () {
 
   this.passthrough();
 
-  this.get('/users', (schema/*, request*/) => {
-    return schema.users.all();
+  this.get('/users', (schema, request) => {
+    const users = schema.users.all();
+
+    const byNameSearchValue = request.queryParams['filter[by_name_search]'];
+    if (isPresent(byNameSearchValue)) {
+      const regExpPattern = `.*${byNameSearchValue}.*`;
+      return users.filter(user => {
+        return `${user.firstName} ${user.lastName}`.match(new RegExp(regExpPattern, 'gi'));
+      });
+    }
+
+    // const pageSize = request.queryParams['page[size]'];
+    // if (isPresent(pageSize)) {
+    // }
+
+    return users;
   });
 
 }

@@ -5,7 +5,8 @@ import { later } from '@ember/runloop';
 import { classNames, layout } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
-import autocomplete from 'autocomplete.js'
+// Why `autocomplete.js-cybertooth.io`? https://github.com/algolia/autocomplete.js/issues/282
+import autocomplete from 'autocomplete.js-cybertooth.io';
 import TextField from '@ember/component/text-field';
 import template from './template';
 
@@ -48,6 +49,17 @@ export default class Autocomplete extends TextField {
    * @type {Hash}
    */
   additionalFilters = {};
+
+  /**
+   * Defaults to 250ms.
+   *
+   * The number of milliseconds to wait between keystrokes in the autocomplete textbox
+   * before firing of the search request.
+   *
+   * @argument
+   * @type {number}
+   */
+  debounce = 250;
 
   /**
    * Required.  Defaults to `"id"`.
@@ -391,18 +403,22 @@ export default class Autocomplete extends TextField {
    * to Algolia's `autocomplete.js` library for initialisation.
    *
    * @private
-   * @todo debounce the key strong in the `source` function
    */
   _initializeAutocomplete() {
     const self = this;
     this._autocompleteInstance = autocomplete(this._selector, this.globalOptions, [{
+      debounce: self.debounce,
       displayKey: this.displayKey,
       name: `dataset-id-${this.elementId}`,
       source: function (query, callback) {
-        // TODO: debounce?
         self.store
           .loadRecords(self.modelName, self._queryOptions(query))
-          .then(response => callback(response.toArray()));
+          .then(response => {
+            const noWay = [];
+            response.forEach(modelInstance => noWay.push(modelInstance));
+            callback(noWay);
+            return response;
+          });
       },
       templates: {
         suggestion: this.suggestion ? this.suggestion : null

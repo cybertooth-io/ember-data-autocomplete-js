@@ -1,0 +1,17 @@
+{{!-- @formatter:off --}}
+{{#docs-snippet name="customized-suggestion-controller" language="javascript"}}
+  import {action} from '@ember/object';
+  import Controller from '@ember/controller';
+
+  export default Controller.extend({
+    @action chooseUser(event, user) {
+      alert(`${user.firstName}'s birth date is ${user.dateOfBirth.toISOString()}`)
+      return true;
+    },
+
+    suggestionCustomized(user) {
+      return `<p>${user.fullName} - ${user.email}<br/><small>DOB: ${user.dateOfBirth.toLocaleString()}</small></p>`;
+    }
+  });
+{{/docs-snippet}}
+{{!-- @formatter:on--}}

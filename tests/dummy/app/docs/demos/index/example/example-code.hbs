@@ -1,0 +1,13 @@
+{{!-- @formatter:off --}}
+{{#docs-snippet name="basic-controller" language="javascript"}}
+  import {action} from '@ember/object';
+  import Controller from '@ember/controller';
+
+  export default Controller.extend({
+    @action chooseUser(event, user) {
+      alert(`${user.firstName}'s birth date is ${user.dateOfBirth.toISOString()}`)
+      return true;
+    }
+  });
+{{/docs-snippet}}
+{{!-- @formatter:on--}}

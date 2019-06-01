@@ -7,13 +7,12 @@ const Router = AddonDocsRouter.extend({
 });
 
 Router.map(function () {
-  this.route('docs');
-
   docsRoute(this, function () {
     this.route('how-it-works');
     this.route('quickstart');
     this.route('styling');
     this.route('demos', function () {
+      this.route('customized-suggestion');
     });
   });
 

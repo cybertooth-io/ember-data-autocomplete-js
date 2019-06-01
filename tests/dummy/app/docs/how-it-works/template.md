@@ -42,13 +42,14 @@ Let's say in your Ember Data world you have a `User` model.
 Perhaps you want to choose a user from an autocomplete text box, below is an example
 of the component you'd invoke from your template.
 
-{{#docs-snippet name="template.hbs" title="app/templates/.../somewhere.hbs"}}
-  Autocomplete 
+{{#docs-snippet name="how-it-works-template.hbs" title="app/templates/.../somewhere.hbs"}}
+  <Autocomplete 
     @displayKey="fullName"
     @filter="by_name_search" 
     @modelName="user" 
-    @selected=(action "onSelected") 
+    @selected={{action "chooseUser"}} 
     @sort="last-name,first-name"
+  />
 {{/docs-snippet}}
 
 The `<Autocomplete>` component extends `@ember/component/text-field` and you're 
@@ -65,14 +66,14 @@ input.  Below is an example of what a typical action will look like.
 
 <p/>
 
-{{#docs-snippet name="controller.js" title="app/controllers/.../somewhere.js"}}
-  import { action } from '@ember-decorators/object'
+{{#docs-snippet name="how-it-works-controller.js" title="app/controllers/.../somewhere.js"}}
+  import { action } from '@ember/object'
   import Controller from '@ember/controller';
   
-  export default class IndexController extends Controller {
-    @action onSelected(event, user, dataset, context) {
-      // do something with the chosen `user` parameter
-      alert(user.dateOfBirth.toISOString());
+  export default Controller.extend({
+    @action chooseUser(event, user/*, dataset, context*/) {
+      // do something with the chosen `user` model instance
+      alert(`${user.firstName}'s birth date is ${user.dateOfBirth.toISOString()}`)
       return true;
     }
   }
@@ -81,23 +82,7 @@ input.  Below is an example of what a typical action will look like.
 ## Autocomplete Component's Use Of The Store
 
 So what happened to populate the autocomplete options?  Effectively, the Ember Data
-`store` was called upon to perform a Ember Storefront's
+`store` was called upon to perform Ember Storefront's
 [`loadRecords`](https://embermap.github.io/ember-data-storefront/docs/api/mixins/loadable-store#loadRecords)
 (basically an Ember Data 
 [`query`](https://api.emberjs.com/ember-data/release/classes/DS.Store/methods/query?anchor=query)).
-
-{{#docs-snippet name="autocomplete.js" title="<Autocomplete> Component Internals"}}
-  // ...
-  const textboxValue = this.value;    // whatever the user typed
-  const modelName = this.modelName;   // => "user" - the @modelName value you passed into the component
-  const filter = this.filter;         // => "by_name_search" the @filter value you passed into the component
-  const include = this.include;       // => "" the @include value you passed into the component
-  const sort = this.sort;             // => "last-name,first-name" the @sort value you passed into the component
-  
-  this.store.loadRecords(modelName {
-    filter: { this.filter: textboxValue },
-    include: this.include,
-    sort: this.sort
-  })
-  // ...
-{{/docs-snippet}}

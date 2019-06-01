@@ -33,9 +33,10 @@ ember install ember-decorators
 # https://github.com/pzuraq/ember-decorators-polyfill
 ember install ember-decorators-polyfill
 
-# The fork of Twitter's Typeahead that continues to be maintained.
-# https://github.com/algolia/autocomplete.js
-yarn add autocomplete.js
+# Forked from Algolia Autocomplete because the suggestion passed into the
+# selected event is a JSON String instead of the Ember Data model instance.
+# https://github.com/cybertooth-io/autocomplete.js
+yarn add autocomplete.js-cybertooth.io
 
 # Fake some user data for testing
 # https://github.com/marak/Faker.js/
