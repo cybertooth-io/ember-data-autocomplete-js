@@ -6,7 +6,7 @@ import { classNames, layout } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 // Why `autocomplete.js-cybertooth.io`? https://github.com/algolia/autocomplete.js/issues/282
-import autocomplete from 'autocomplete.js-cybertooth.io';
+import autocomplete from 'autocomplete.js-cybertooth.io/dist/autocomplete';
 import TextField from '@ember/component/text-field';
 import template from './template';
 
