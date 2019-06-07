@@ -42,11 +42,11 @@ export default class Autocomplete extends TextField {
    * autocomplete results.
    *
    * ```handlebars
-   * <Autocomplete ... @additionalFilters=(hash by_active=true) ... />
+   * <Autocomplete ... @additionalFilters={{hash by_active=true}} ... />
    * ```
    *
    * @argument
-   * @type {Hash}
+   * @type {{}}
    */
   additionalFilters = {};
 
@@ -182,11 +182,53 @@ export default class Autocomplete extends TextField {
    * The [globalOptions](https://github.com/algolia/autocomplete.js#global-options) for
    * the autocomplete initialization.
    *
-   * TODO: should these be merge-able?
+   * Here are the defaults:
    *
+   * ```javascript
+   *  {
+   *    appendTo: null,
+   *    ariaLabel: null,
+   *    autoselect: false,
+   *    autoselectOnBlur: false,
+   *    autoWidth: true,
+   *    clearOnSelected: false,
+   *    cssClasses: {
+   *      cursor: 'cursor',
+   *      dataset: 'dataset',
+   *      dropdownMenu: 'dropdown-menu',
+   *      empty: 'empty',
+   *      hint: 'hint',
+   *      input: 'input',
+   *      noPrefix: false,
+   *      prefix: 'aa',
+   *      root: 'algolia-autocomplete',
+   *      suggestion: 'suggestion',
+   *      suggestions: 'suggestions'
+   *    },
+   *    debug: false,
+   *    dropdownMenuContainer: null,
+   *    hint: true,
+   *    keyboardShortcuts: [],
+   *    minLength: 1,
+   *    openOnFocus: false,
+   *    tabAutocomplete: true,
+   *    templates: {
+   *      dropdownMenu: null,
+   *      header: null,
+   *      footer: null,
+   *      empty: null
+   *    }
+   *  }
+   * ```
+   *
+   * You can override any one of these when declaring your component:
+   *
+   * ```handlebars
+   *  <Autocomplete ... @globalOptions={{hash clearOnSelected=true}} />
+   * ```
    * @argument
    * @see https://github.com/algolia/autocomplete.js#global-options
-   * @type {{dropdownMenuContainer: null, keyboardShortcuts: Array, debug: boolean, cssClasses: {cursor: string, dropdownMenu: string, input: string, prefix: string, hint: string, root: string, suggestion: string, suggestions: string, dataset: string, noPrefix: boolean, empty: string}, minLength: number, templates: {dropdownMenu: null, footer: null, header: null, empty: null}, tabAutocomplete: boolean, ariaLabel: null, clearOnSelected: boolean, autoselectOnBlur: boolean, openOnFocus: boolean, hint: boolean, appendTo: null, autoWidth: boolean, autoselect: boolean}}
+   * @type {{}}
    */
   globalOptions = {
     appendTo: null,

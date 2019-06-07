@@ -13,6 +13,7 @@ Router.map(function () {
     this.route('styling');
     this.route('demos', function () {
       this.route('customized-suggestion');
+      this.route('empty-template');
     });
   });
 
