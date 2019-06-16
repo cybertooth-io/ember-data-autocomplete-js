@@ -131,15 +131,15 @@ workflows:
       - test_default_with_jquery:
           requires:
             - yarn_and_cache
-#      - test_release:
-#          requires:
-#            - yarn_and_cache
-#      - test_beta:
-#          requires:
-#            - yarn_and_cache
-#      - test_canary:
-#          requires:
-#            - yarn_and_cache
+      - test_release:
+          requires:
+            - yarn_and_cache
+      - test_beta:
+          requires:
+            - yarn_and_cache
+      - test_canary:
+          requires:
+            - yarn_and_cache
 #      - test_lts_2_18:
 #          requires:
 #            - yarn_and_cache
