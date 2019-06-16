@@ -14,7 +14,7 @@ default_try_steps: &default_try_steps
           - v1-deps-
     - run:
         name: Ember Try Scenario
-        command: COVERAGE=true node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+        command: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
 
 version: 2
 jobs:
@@ -51,7 +51,14 @@ jobs:
           command: yarn lint:js
       - run:
           name: Test
-          command: yarn test
+          command: COVERAGE=true yarn test
+  # TODO: coverage should be published but having a problem doing so because
+  # of CodeClimate permissions
+  # Once permissions fixed, need to grab token and place it
+  #      - run:
+  #          name: Report Coverage
+  #          command: codeclimate-test-reporter < coverage/lcov.info
+
   # TODO: configure to deploy dummy app to github
   #      - deploy:
   #          command: |
@@ -121,18 +128,18 @@ workflows:
       - test_default:
           requires:
             - yarn_and_cache
-      - test_default_with_jquery:
-          requires:
-            - yarn_and_cache
-      - test_release:
-          requires:
-            - yarn_and_cache
-      - test_beta:
-          requires:
-            - yarn_and_cache
-      - test_canary:
-          requires:
-            - yarn_and_cache
+#      - test_default_with_jquery:
+#          requires:
+#            - yarn_and_cache
+#      - test_release:
+#          requires:
+#            - yarn_and_cache
+#      - test_beta:
+#          requires:
+#            - yarn_and_cache
+#      - test_canary:
+#          requires:
+#            - yarn_and_cache
 #      - test_lts_2_18:
 #          requires:
 #            - yarn_and_cache
