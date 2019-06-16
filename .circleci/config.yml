@@ -128,9 +128,9 @@ workflows:
       - test_default:
           requires:
             - yarn_and_cache
-#      - test_default_with_jquery:
-#          requires:
-#            - yarn_and_cache
+      - test_default_with_jquery:
+          requires:
+            - yarn_and_cache
 #      - test_release:
 #          requires:
 #            - yarn_and_cache
