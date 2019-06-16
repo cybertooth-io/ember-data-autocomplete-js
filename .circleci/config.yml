@@ -1,10 +1,25 @@
+default_docker: &default_docker
+  docker:
+    - image: circleci/node:lts-browsers
+      environment:
+        JOBS: 2
+
+default_try_steps: &default_try_steps
+  steps:
+    - checkout
+    - restore_cache:
+        keys:
+          - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - v1-deps-{{ .Branch }}-
+          - v1-deps-
+    - run:
+        name: Ember Try Scenario
+        command: COVERAGE=true node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+
 version: 2
 jobs:
   yarn_and_cache:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
+    <<: *default_docker
     steps:
       - checkout
       - restore_cache:
@@ -14,16 +29,13 @@ jobs:
             - v1-deps-
       - run:
           name: Yarn Install
-          command: yarn install
+          command: yarn install --non-interactive
       - save_cache:
           key: v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
   test_default:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
+    <<: *default_docker
     steps:
       - checkout
       - restore_cache:
@@ -32,143 +44,75 @@ jobs:
             - v1-deps-{{ .Branch }}-
             - v1-deps-
       - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup
-  test_default_with_jquery:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}-
-            - v1-deps-
+          name: Template Lint
+          command: yarn lint:hbs
       - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-default-with-jquery --skip-cleanup
+          name: Javascript Lint
+          command: yarn lint:js
+      - run:
+          name: Test
+          command: yarn test
+  # TODO: configure to deploy dummy app to github
+  #      - deploy:
+  #          command: |
+  #            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+  #              ember deploy production
+  #            fi
+
+  ember_test_default_with_jquery:
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-default-with-jquery
+    <<: *default_try_steps
+
   test_release:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}-
-            - v1-deps-
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-release --skip-cleanup
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-release
+    <<: *default_try_steps
+
   test_beta:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}-
-            - v1-deps-
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-beta --skip-cleanup
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-beta
+    <<: *default_try_steps
+
   test_canary:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}-
-            - v1-deps-
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-canary --skip-cleanup
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-canary
+    <<: *default_try_steps
+
   test_lts_2_18:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}-
-            - v1-deps-
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-lts-2.18 --skip-cleanup
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-lts-2.18
+    <<: *default_try_steps
+
   test_lts_2_16:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}-
-            - v1-deps-
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-lts-2.16 --skip-cleanup
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-lts-2.16
+    <<: *default_try_steps
+
   test_lts_2_12:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}-
-            - v1-deps-
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-lts-2.12 --skip-cleanup
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-lts-2.12
+    <<: *default_try_steps
+
   test_lts_2_8:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}-
-            - v1-deps-
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-lts-2.8 --skip-cleanup
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-lts-2.8
+    <<: *default_try_steps
+
   test_lts_2_4:
-    docker:
-      - image: circleci/node:lts-browsers
-        environment:
-          JOBS: 2
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ .Branch }}-
-            - v1-deps-
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-lts-2.4 --skip-cleanup
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-lts-2.4
+    <<: *default_try_steps
+
 workflows:
   version: 2
   ember_try:
