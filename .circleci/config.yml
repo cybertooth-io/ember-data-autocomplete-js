@@ -56,11 +56,11 @@ jobs:
       - run:
           name: Report Coverage
           command: node_modules/.bin/codeclimate-test-reporter < coverage/lcov.info
-#      - deploy:
-#          command: |
-#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#              node_modules/.bin/ember deploy production
-#            fi
+      - deploy:
+          command: |
+            if [ $CIRCLE_BRANCH == master || -n $CIRCLE_TAG ]; then
+              node_modules/.bin/ember deploy production
+            fi
 
   test_default_with_jquery:
     <<: *default_docker
