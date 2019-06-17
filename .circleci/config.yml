@@ -58,7 +58,7 @@ jobs:
           command: node_modules/.bin/codeclimate-test-reporter < coverage/lcov.info
       - deploy:
           command: |
-            if [ $CIRCLE_BRANCH == master || -n $CIRCLE_TAG ]; then
+            if [[ $CIRCLE_BRANCH == master || -n $CIRCLE_TAG ]]; then
               node_modules/.bin/ember deploy production
             fi
 
