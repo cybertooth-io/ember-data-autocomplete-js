@@ -34,6 +34,7 @@ jobs:
           key: v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
+
   test_default:
     <<: *default_docker
     steps:
@@ -52,19 +53,14 @@ jobs:
       - run:
           name: Test
           command: COVERAGE=true yarn test
-  # TODO: coverage should be published but having a problem doing so because
-  # of CodeClimate permissions
-  # Once permissions fixed, need to grab token and place it
-  #      - run:
-  #          name: Report Coverage
-  #          command: codeclimate-test-reporter < coverage/lcov.info
-
-  # TODO: configure to deploy dummy app to github
-  #      - deploy:
-  #          command: |
-  #            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-  #              ember deploy production
-  #            fi
+      - run:
+          name: Report Coverage
+          command: codeclimate-test-reporter < coverage/lcov.info
+#      - deploy:
+#          command: |
+#            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+#              node_modules/.bin/ember deploy production
+#            fi
 
   test_default_with_jquery:
     <<: *default_docker
