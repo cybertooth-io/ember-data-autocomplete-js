@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, skip, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
@@ -6,7 +6,7 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | autocomplete', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('when rendering with handlebars', async function (assert) {
+  skip('when rendering with handlebars', async function (assert) {
     await render(hbs`{{autocomplete}}`);
 
     assert.equal(this.element.getElementsByClassName('algolia-autocomplete').length, 1,
