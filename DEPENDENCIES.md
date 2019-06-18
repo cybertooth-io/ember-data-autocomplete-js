@@ -1,6 +1,10 @@
 # Dependencies
 
 ```bash
+# Polyfill angle bracket invocation into 2.x builds
+# https://github.com/rwjblue/ember-angle-bracket-invocation-polyfill
+ember install ember-angle-bracket-invocation-polyfill
+
 # Effortlessly import autocomplete.js and faker
 # https://github.com/ef4/ember-auto-import
 ember install ember-auto-import

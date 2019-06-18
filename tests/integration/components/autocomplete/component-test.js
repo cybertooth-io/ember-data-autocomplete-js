@@ -7,7 +7,7 @@ module('Integration | Component | autocomplete', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    await render(hbs`<Autocomplete/>`);
+    await render(hbs`<Autocomplete />`);
 
     assert.equal(this.element.getElementsByClassName('algolia-autocomplete').length, 1,
       'Should be wrapped by autocomplete span');
