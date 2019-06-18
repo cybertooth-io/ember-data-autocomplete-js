@@ -86,6 +86,18 @@ jobs:
       EMBER_TRY_SCENARIO: ember-canary
     <<: *default_try_steps
 
+  test_lts_3_8:
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-lts-3.8
+    <<: *default_try_steps
+
+  test_lts_3_4:
+    <<: *default_docker
+    environment:
+      EMBER_TRY_SCENARIO: ember-lts-3.4
+    <<: *default_try_steps
+
   test_lts_2_18:
     <<: *default_docker
     environment:
@@ -134,6 +146,12 @@ workflows:
           requires:
             - yarn_and_cache
       - test_canary:
+          requires:
+            - yarn_and_cache
+      - test_lts_3_8:
+          requires:
+            - yarn_and_cache
+      - test_lts_3_4:
           requires:
             - yarn_and_cache
 #      - test_lts_2_18:

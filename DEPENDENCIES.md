@@ -44,7 +44,7 @@ yarn add autocomplete.js-cybertooth.io
 
 # Allows CircleCI to push code coverage information
 # https://github.com/codeclimate/test-reporter
-yarn -D codeclimate-test-reporter
+yarn add -D codeclimate-test-reporter
 
 # Fake some user data for testing
 # https://github.com/marak/Faker.js/
