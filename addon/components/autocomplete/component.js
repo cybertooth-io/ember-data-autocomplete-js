@@ -188,7 +188,7 @@ export default class Autocomplete extends TextField {
    * Optional.
    *
    * The comma separated list of _dasherized_ relationship names that should be side-loaded
-   * (included) in the JSON-API payload response.
+   * (included) in the JSON:API payload response.
    *
    * ```handlebars
    * <Autocomplete ... @include="roles" ... />
@@ -222,7 +222,7 @@ export default class Autocomplete extends TextField {
    * <Autocomplete ... @page={{hash size=5}} ... />
    * ```
    *
-   * You can control how many records are being returned by your JSON-API
+   * You can control how many records are being returned by your JSON:API
    * endpoint by passing the page size.
    *
    * @argument

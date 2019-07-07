@@ -4,7 +4,7 @@
   These examples demonstrate component invocation using Angle Brackets and named arguments syntax (`@`).
 </aside>
 
-We use the Ember Data store and JSON-API semantics to search for your model results.
+We use the Ember Data store and JSON:API semantics to search for your model results.
 
 ## User Model
 
@@ -37,9 +37,9 @@ Let's say in your Ember Data world you have a `User` model.
   }
 {{/docs-snippet}}
 
-## JSONAPI For The Win
+## JSON:API For The Win
 
-By default, this component assumes that you're using the JSONAPI Ember Data adapter.  JSONAPI
+By default, this component assumes that you're using the JSON:API Ember Data adapter.  JSON:API
 comes with wonderful querying options like `filter`s, `sort`, `includes`, etc.
 
 Here is an example of how we use the Ember Data `store` to query for data; **you don't write

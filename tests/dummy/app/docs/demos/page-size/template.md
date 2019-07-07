@@ -1,7 +1,7 @@
 # Page Size
 
 **Don't bring back all million records**!  By default, the autocomplete textbox implementation will only
-bring back the FIRST page of size TEN of the results from your JSONAPI query.
+bring back the FIRST page of size TEN of the results from your JSON:API query.
 
 You can alter this page size by supplying a hash to the `@page` argument.
 
@@ -12,7 +12,7 @@ You can alter this page size by supplying a hash to the `@page` argument.
 ## What's Going On?
 
 When the `store`'s `query` (or `loadRecords` when Storefront is enabled), the `page[size]` query
-parameter is appended to your request.  Your JSONAPI endpoint will use this to reduce the size
+parameter is appended to your request.  Your JSON:API endpoint will use this to reduce the size
 of the payload returned.
 
 To apply the page size, add the following to your component invocation:

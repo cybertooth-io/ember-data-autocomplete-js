@@ -2,7 +2,7 @@
 
 By default, the text input value will be applied to the filter you assign to `@filter`.
 
-In many use cases, you need to apply multiple filters to your lookup query.  JSONAPI handles
+In many use cases, you need to apply multiple filters to your lookup query.  JSON:API handles
 this very elegantly and we give you access to that feature through the `@additionalFilters`
 argument.
 

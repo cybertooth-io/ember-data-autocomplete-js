@@ -1,6 +1,6 @@
 # Quickstart
 
-Let's say in your Ember Data world you have a `User` model.  We'll use JSON-API semantics to
+Let's say in your Ember Data world you have a `User` model.  We'll use JSON:API semantics to
 search your users through Ember Data's `store` and then render them in the autocomplete control.
 
 Below is an example of a template.
