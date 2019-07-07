@@ -1,19 +1,19 @@
 {{#docs-demo as |demo|}}
-  {{#demo.example name="empty-template"}}
+  {{#demo.example name="no-hint-template"}}
     <Autocomplete
       autofocus="true"
       class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
-      placeholder="Empty Message - Begin Typing Nonsense"
+      placeholder="No Muted Hint Text - Begin Typing"
       type="search"
       @displayKey="fullName"
       @filter="by_name_search"
-      @globalOptions={{hash templates=(hash empty="<p><em>Nothing Found</em></p>")}}
+      @globalOptions={{hash hint=false}}
       @modelName="user"
       @selected={{action "chooseUser"}}
     />
   {{/demo.example}}
 
-  {{demo.snippet "empty-template" label="template.hbs"}}
+  {{demo.snippet "no-hint-template" label="template.hbs"}}
   {{demo.snippet "basic-controller" label="controller.js"}}
   {{demo.snippet "user.js" label="user.js"}}
 {{/docs-demo}}

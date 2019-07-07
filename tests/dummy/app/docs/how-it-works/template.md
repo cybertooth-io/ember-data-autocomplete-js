@@ -37,6 +37,27 @@ Let's say in your Ember Data world you have a `User` model.
   }
 {{/docs-snippet}}
 
+## JSONAPI For The Win
+
+By default, this component assumes that you're using the JSONAPI Ember Data adapter.  JSONAPI
+comes with wonderful querying options like `filter`s, `sort`, `includes`, etc.
+
+Here is an example of how we use the Ember Data `store` to query for data; **you don't write
+any of this _query_ code**:
+
+```javascript
+// ...
+this.store.query('some-model-name', {
+  filter: {
+    some_filter: 'some-filter-value',
+    the_filter_using_autocomplete_text: 'textbox value'
+  },
+  include: 'some-relationship',
+  sort: 'some-column'
+})
+// ...
+``` 
+
 ## Autocomplete Component
 
 Perhaps you want to choose a user from an autocomplete text box, below is an example

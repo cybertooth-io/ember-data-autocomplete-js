@@ -1,4 +1,4 @@
-# Basic
+# Basic - Using Angle Bracket Invocation
 
 A Mirage factory has generated 25 _faker_ users.  Search for them by their first and last name.
 Choosing a user will simply `alert` their birth date in ISO format.

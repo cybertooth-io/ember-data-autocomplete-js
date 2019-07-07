@@ -1,14 +1,13 @@
 /** @documenter esdoc */
 
-import { isPresent } from '@ember/utils';
-import { later } from '@ember/runloop';
-import { classNames, layout } from '@ember-decorators/component';
-import { inject as service } from '@ember/service';
+import { classNames } from '@ember-decorators/component';
+import TextField from '@ember/component/text-field';
 import { computed } from '@ember/object';
+import { later } from '@ember/runloop';
+import { inject as service } from '@ember/service';
+import { isPresent } from '@ember/utils';
 // Why `autocomplete.js-cybertooth.io`? https://github.com/algolia/autocomplete.js/issues/282
 import autocomplete from 'autocomplete.js-cybertooth.io/dist/autocomplete';
-import TextField from '@ember/component/text-field';
-import template from './template';
 
 /**
  * This `{{autocomplete}}` component is a textbox powered by `autocomplete.js`
@@ -18,7 +17,6 @@ import template from './template';
  * @extends {TextField}
  */
 @classNames('ember-data-autocomplete-js')
-@layout(template)
 export default class Autocomplete extends TextField {
 
   /** Services
@@ -53,6 +51,10 @@ export default class Autocomplete extends TextField {
   /**
    * Defaults to 250ms.
    *
+   * ```handlebars
+   * <Autocomplete ... @debounce=100 ... />
+   * ```
+   *
    * The number of milliseconds to wait between keystrokes in the autocomplete textbox
    * before firing of the search request.
    *
@@ -63,6 +65,14 @@ export default class Autocomplete extends TextField {
 
   /**
    * Required.  Defaults to `"id"`.
+   *
+   * ```handlebars
+   * <Autocomplete ... @displayKey="fullName" ... />
+   * ```
+   *
+   * ```handlebars
+   * <Autocomplete ... @displayKey={{displayKeyFunctionName}} ... />
+   * ```
    *
    * The derived value that will be set in the texbox upon choosing an item.  If the `suggestion`
    * argument is not supplied, then the `displayKey` derived value will also be presented in
@@ -86,97 +96,6 @@ export default class Autocomplete extends TextField {
    * @type {String}
    */
   filter = '';
-
-  /**
-   * Optional.
-   *
-   * The comma separated list of _dasherized_ relationship names that should be side-loaded
-   * (included) in the JSON-API payload response.
-   *
-   * ```handlebars
-   * <Autocomplete ... @include="roles" ... />
-   * ```
-   *
-   * @argument
-   * @type {String}
-   */
-  include = '';
-
-  /**
-   * Required.
-   *
-   * The _dasherized_ Ember Data model name that will be queried for autocomplete results.
-   *
-   * ```handlebars
-   * <Autocomplete ... @modelName="user" ... />
-   * ```
-   *
-   * @argument
-   * @type {String}
-   */
-  modelName = '';
-
-  /**
-   * Required.  Experimental.
-   *
-   * You can control how many records are being returned by your JSON-API
-   * endpoint by passing the page size.
-   *
-   * @argument
-   * @experimental
-   * @type {{number: number, size: number}}
-   */
-  page = {
-    number: 1,
-    size: 10
-  };
-
-  /**
-   * Optional.
-   *
-   * The comma separated list of _dasherized_ attribute names that will be used to sort the
-   * results server side.
-   *
-   * ```handlebars
-   * <Autocomplete ... @sort="last-name,first-name,email" ... />
-   * ```
-   *
-   * @argument
-   * @type {String}
-   */
-  sort = '';
-
-  /**
-   * Optional.
-   *
-   * The suggestion value that will be rendered in the list of options that
-   * appears beneath the autocomplete textbox.  We suggest wrapping your
-   * value with `<p>` tag.
-   *
-   * The best was to implement this function is in the `Component`
-   * or `Controller` of the template that this <Autocomplete/> is being
-   * rendered in.
-   *
-   * For example:
-   *
-   * ```javascript
-   *  // app/controllers/.../somewhere.js
-   *  suggestByFirstAndLastName: function(model) {
-   *    return `<p>${model.firstName} ${model.lastName}</p>`;
-   *  }
-   * ```
-   *
-   * ```handlebars
-   *  <Autocomplete ... @suggestion=suggestByFirstAndLastName/>
-   * ```
-   *
-   * @argument
-   * @param {Object} model - the model instance the was retrieved by the search that you
-   * can use to create the suggestion
-   * @type {function}
-   * @return {String} the suggestion value wrapped in a `<p>` element.
-   */
-  suggestion = undefined;
 
   /**
    * The [globalOptions](https://github.com/algolia/autocomplete.js#global-options) for
@@ -265,6 +184,103 @@ export default class Autocomplete extends TextField {
     }
   };
 
+  /**
+   * Optional.
+   *
+   * The comma separated list of _dasherized_ relationship names that should be side-loaded
+   * (included) in the JSON-API payload response.
+   *
+   * ```handlebars
+   * <Autocomplete ... @include="roles" ... />
+   * ```
+   *
+   * @argument
+   * @type {String}
+   */
+  include = '';
+
+  /**
+   * Required.
+   *
+   * The _dasherized_ Ember Data model name that will be queried for autocomplete results.
+   *
+   * ```handlebars
+   * <Autocomplete ... @modelName="user" ... />
+   * ```
+   *
+   * @argument
+   * @type {String}
+   */
+  modelName = '';
+
+  /**
+   * Optional & Experimental.
+   *
+   * Defaults to page of size 10.
+   *
+   * ```handlebars
+   * <Autocomplete ... @page={{hash size=5}} ... />
+   * ```
+   *
+   * You can control how many records are being returned by your JSON-API
+   * endpoint by passing the page size.
+   *
+   * @argument
+   * @experimental
+   * @type {{number: number, size: number}}
+   */
+  page = {
+    number: 1,
+    size: 10
+  };
+
+  /**
+   * Optional.
+   *
+   * The comma separated list of _dasherized_ attribute names that will be used to sort the
+   * results server side.
+   *
+   * ```handlebars
+   * <Autocomplete ... @sort="last-name,first-name,email" ... />
+   * ```
+   *
+   * @argument
+   * @type {String}
+   */
+  sort = '';
+
+  /**
+   * Optional.
+   *
+   * The suggestion value that will be rendered in the list of options that
+   * appears beneath the autocomplete textbox.  We suggest wrapping your
+   * value with `<p>` tag.
+   *
+   * The best was to implement this function is in the `Component`
+   * or `Controller` of the template that this <Autocomplete/> is being
+   * rendered in.
+   *
+   * For example:
+   *
+   * ```javascript
+   *  // app/controllers/.../somewhere.js
+   *  suggestByFirstAndLastName: function(model) {
+   *    return `<p>${model.firstName} ${model.lastName}</p>`;
+   *  }
+   * ```
+   *
+   * ```handlebars
+   *  <Autocomplete ... @suggestion={{suggestByFirstAndLastName}}/>
+   * ```
+   *
+   * @argument
+   * @param {Object} model - the model instance the was retrieved by the search that you
+   * can use to create the suggestion
+   * @type {function}
+   * @return {String} the suggestion value wrapped in a `<p>` element.
+   */
+  suggestion = undefined;
+
   /** Computed
    ------------------------------------------------------------------------------------------------------------------ */
   /**
@@ -295,11 +311,14 @@ export default class Autocomplete extends TextField {
    * The event handler will be invoked with 3 arguments: the jQuery event object, the suggestion
    * object, and the name of the dataset the suggestion belongs to.
    *
+   * @param {Event} event - the event object
+   * @param {Object} chosenItem - the Ember Data instance that was selected
+   * @param {string} dataSetNameOrNumber - the name of the autocomplete.js dataset
    * @emits {autocompleted}
    * @see https://github.com/algolia/autocomplete.js#events
    * @type {Action}
    */
-  autocompleted() {
+  autocompleted(/*event, chosenItem, dataSetNameOrNumber*/) {
     // override accordingly
   }
 
@@ -319,11 +338,14 @@ export default class Autocomplete extends TextField {
    * handler will be invoked with 3 arguments: the jQuery event object, the suggestion object, and
    * the name of the dataset the suggestion belongs to.
    *
+   * @param {Event} event - the event object
+   * @param {Object} chosenItem - the Ember Data instance that was selected
+   * @param {string} dataSetNameOrNumber - the name of the autocomplete.js dataset
    * @emits {cursorChanged}
    * @see https://github.com/algolia/autocomplete.js#events
    * @type {Action}
    */
-  cursorChanged() {
+  cursorChanged(/*event, chosenItem, dataSetNameOrNumber*/) {
     // override accordingly
   }
 
@@ -341,6 +363,7 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when all datasets are empty.
    *
+   * @param {Event} event - the event object
    * @emits {empty}
    * @see https://github.com/algolia/autocomplete.js#events
    * @type {Action}
@@ -352,6 +375,7 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when the dropdown menu of the autocomplete is opened.
    *
+   * @param {Event} event - the event object
    * @emits {opened}
    * @see https://github.com/algolia/autocomplete.js#events
    * @type {Action}
@@ -377,6 +401,12 @@ export default class Autocomplete extends TextField {
    * dataset the suggestion belongs to and a context object. The context contains a .selectionMethod
    * key that can be either click, enterKey, tabKey or blur, depending how the suggestion was selected.
    *
+   * @param {Event} event - the event object
+   * @param {Object} chosenItem - the Ember Data instance that was selected
+   * @param {string} dataSetNameOrNumber - the name of the autocomplete.js dataset
+   * @param {Object} context -
+   * @param {string} context.selectionMethod - the string describing how the selection
+   * was made (`click`, `enterKey`, etc.)
    * @emits {selected} when a suggestion is selected
    * @see https://github.com/algolia/autocomplete.js#events
    * @type {Action}
@@ -388,6 +418,7 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when the dropdown menu of the autocomplete is shown (opened and non-empty).
    *
+   * @param {Event} event - the event object
    * @emits {shown} when the dropdown menu of the autocomplete is shown
    * @see https://github.com/algolia/autocomplete.js#events
    * @type {Action}
@@ -399,6 +430,7 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when a dataset is rendered.
    *
+   * @param {Event} event - the event object
    * @emits {updated} when a dataset is rendered
    * @see https://github.com/algolia/autocomplete.js#events
    * @type {Action}
@@ -452,7 +484,7 @@ export default class Autocomplete extends TextField {
       debounce: self.debounce,
       displayKey: this.displayKey,
       name: `dataset-id-${this.elementId}`,
-      source: function (query, callback) {
+      source: function(query, callback) {
         self.store
           .loadRecords(self.modelName, self._queryOptions(query))
           .then(response => {
