@@ -16,8 +16,8 @@ import autocomplete from 'autocomplete.js-cybertooth.io/dist/autocomplete';
  *
  * @extends {TextField}
  */
-@classNames('ember-data-autocomplete-js')
-export default class Autocomplete extends TextField {
+export default @classNames('ember-data-autocomplete-js')
+class Autocomplete extends TextField {
 
   /** Services
    ------------------------------------------------------------------------------------------------------------------ */
