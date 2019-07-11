@@ -40,7 +40,7 @@ Let's say in your Ember Data world you have a `User` model.
 ## JSON:API For The Win
 
 By default, this component assumes that you're using the JSON:API Ember Data adapter.  JSON:API
-comes with wonderful querying options like `filter`s, `sort`, `includes`, etc.
+comes with wonderful querying options like `filter`, `sort`, `include`, etc.
 
 Here is an example of how we use the Ember Data `store` to query for data; **you don't write
 any of this _query_ code**:
