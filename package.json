@@ -52,7 +52,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "codeclimate-test-reporter": "^0.5.1",
     "ember-angle-bracket-invocation-polyfill": "^1.3.1",
-    "ember-cli": "~3.10.1",
+    "ember-cli": "~3.11.0",
     "ember-cli-addon-docs": "^0.6.13",
     "ember-cli-addon-docs-esdoc": "^0.2.1",
     "ember-cli-code-coverage": "^1.0.0-beta.8",
@@ -78,7 +78,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-qunit": "^4.4.1",
     "ember-resolver": "^5.0.1",
-    "ember-source": "^3.10.1",
+    "ember-source": "~3.11.1",
     "ember-source-channel-url": "^2.0.1",
     "ember-try": "^1.0.0",
     "eslint-plugin-ember": "^6.2.0",
@@ -93,6 +93,5 @@
     "configPath": "tests/dummy/config",
     "demoURL": "https://cybertooth-io.github.io/ember-data-autocomplete-js/"
   },
-  "homepage": "https://cybertooth-io.github.io/ember-data-autocomplete-js",
-  "peerDependencies": {}
+  "homepage": "https://cybertooth-io.github.io/ember-data-autocomplete-js"
 }
