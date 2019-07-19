@@ -5580,10 +5580,10 @@ ember-copy@^1.0.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-data-storefront@^0.16.1:
-  version "0.16.3"
-  resolved "https://registry.yarnpkg.com/ember-data-storefront/-/ember-data-storefront-0.16.3.tgz#95c3e165489c9a64d4bdb8fa5c5c3841a17ab71d"
-  integrity sha512-HQMiLdKp1b9s2XY4tle5LrveJPjvYSKYynFrn9Zhrh4Wc5EFxcJttsAEZQK1SyTzNIXXzlU+j2kP58uHB5JsGg==
+ember-data-storefront@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/ember-data-storefront/-/ember-data-storefront-0.17.0.tgz#b20118b8c5fa7f99acd2bcba251894ab6659d2d0"
+  integrity sha512-RUu9KVrmq6jrhtk5rW8Be21fseyzs9G1OtcCY94znMSxNT/ZBQSriwGdUykGao2EAoH02do4onSC8a5Nw/xdxQ==
   dependencies:
     ember-cli-babel "^7.5.0"
     global "^4.3.2"
