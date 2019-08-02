@@ -4833,14 +4833,15 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-ember-angle-bracket-invocation-polyfill@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/ember-angle-bracket-invocation-polyfill/-/ember-angle-bracket-invocation-polyfill-1.3.1.tgz#3dd0b91b3776a8048a943889c031fa7f9ea44ec4"
-  integrity sha512-eeE4LBFIxJ5EclTIydPMPs04vvSDv64m+1fxwN2UKdSdRDWwus36k4B/LquDfWuG1WI0Dk3R4WoTFcRYlbNTWg==
+ember-angle-bracket-invocation-polyfill@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-angle-bracket-invocation-polyfill/-/ember-angle-bracket-invocation-polyfill-2.0.0.tgz#9a7a3ebe545122c6fe11f549bc4e17f6e6e38f76"
+  integrity sha512-rSq7NlXcrwIK2qZuiY+2QxvumIDu9juAzKjlUGhAaUVEw8thB1YqkzQmWg4RgPdsAQ3VNWM/hmOBuFpy2yLdsQ==
   dependencies:
     ember-cli-babel "^6.17.0"
     ember-cli-version-checker "^2.1.2"
     ember-compatibility-helpers "^1.0.2"
+    silent-error "^1.1.1"
 
 ember-app-scheduler@^1.0.5:
   version "1.0.8"
