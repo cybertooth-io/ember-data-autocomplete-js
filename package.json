@@ -47,7 +47,7 @@
     "faker": "^4.1.0"
   },
   "devDependencies": {
-    "@ember/optional-features": "^0.7.0",
+    "@ember/optional-features": "^1.0.0",
     "babel-eslint": "^9.0.0",
     "broccoli-asset-rev": "^3.0.0",
     "codeclimate-test-reporter": "^0.5.1",
