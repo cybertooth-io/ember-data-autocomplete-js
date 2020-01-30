@@ -1,20 +1,20 @@
-{{#docs-demo as |demo|}}
+<DocsDemo as |demo|>
   {{#demo.example name="additional-filters-template"}}
     <Autocomplete
-      autofocus="true"
-      class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
-      placeholder="Only Active Users - Begin Typing"
-      type="search"
-      @additionalFilters={{hash by_active=true}}
-      @displayKey="fullName"
-      @filter="by_name_search"
-      @modelName="user"
-      @selected={{action "chooseUser"}}
-      @suggestion={{suggestionCustomized}}
+        autofocus="true"
+        class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
+        placeholder="Only Active Users - Begin Typing"
+        type="search"
+        @additionalFilters={{hash by_active=true}}
+        @displayKey="fullName"
+        @filter="by_name_search"
+        @modelName="user"
+        @selected={{this.chooseUser}}
+        @suggestion={{this.suggestionCustomized}}
     />
   {{/demo.example}}
 
   {{demo.snippet "additional-filters-template" label="template.hbs"}}
   {{demo.snippet "additional-filters-controller" label="controller.js"}}
   {{demo.snippet "user.js" label="user.js"}}
-{{/docs-demo}}
+</DocsDemo>

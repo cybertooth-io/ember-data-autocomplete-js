@@ -1,19 +1,19 @@
-{{#docs-demo as |demo|}}
+<DocsDemo as |demo|>
   {{#demo.example name="clearing-chosen-template"}}
     <Autocomplete
-      autofocus="true"
-      class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
-      placeholder="Clears After Choice Alert Disappears - Begin Typing"
-      type="search"
-      @displayKey="fullName"
-      @filter="by_name_search"
-      @globalOptions={{hash clearOnSelected=true}}
-      @modelName="user"
-      @selected={{action "chooseUser"}}
+        autofocus="true"
+        class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
+        placeholder="Clears After Choice Alert Disappears - Begin Typing"
+        type="search"
+        @displayKey="fullName"
+        @filter="by_name_search"
+        @globalOptions={{hash clearOnSelected=true}}
+        @modelName="user"
+        @selected={{this.chooseUser}}
     />
   {{/demo.example}}
 
   {{demo.snippet "clearing-chosen-template" label="template.hbs"}}
   {{demo.snippet "basic-controller" label="controller.js"}}
   {{demo.snippet "user.js" label="user.js"}}
-{{/docs-demo}}
+</DocsDemo>

@@ -1,4 +1,4 @@
-{{#docs-demo as |demo|}}
+<DocsDemo as |demo|>
   {{#demo.example name="debug-options-template"}}
     <Autocomplete
       autofocus="true"
@@ -9,11 +9,11 @@
       @filter="by_name_search"
       @globalOptions={{hash debug=true}}
       @modelName="user"
-      @selected={{action "chooseUser"}}
+      @selected={{this.chooseUser}}
     />
   {{/demo.example}}
 
   {{demo.snippet "debug-options-template" label="template.hbs"}}
   {{demo.snippet "basic-controller" label="controller.js"}}
   {{demo.snippet "user.js" label="user.js"}}
-{{/docs-demo}}
+</DocsDemo>
