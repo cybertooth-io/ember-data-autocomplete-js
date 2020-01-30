@@ -1,6 +1,6 @@
-{{docs-header}}
+<DocsHeader/>
 
-{{#docs-viewer as |viewer|}}
+<DocsViewer as |viewer|>
   {{#viewer.nav as |nav|}}
     {{nav.section "Introduction"}}
     {{nav.item "Installation" "docs.index"}}
@@ -20,9 +20,7 @@
     {{nav.item "9. Additional Filters" "docs.demos.additional-filters"}}
 
     <li class="docs-mt-8 docs-capitalize js-ember-data-logo">
-      Thank You
-      {{docs-logo logo="ember-data" }}
-      👍
+      Thank You <DocsLogo @logo="ember-data"/> 👍
     </li>
     <li class="docs-mt-8 docs-capitalize js-ember-data-logo">
       Thank You
@@ -34,4 +32,4 @@
   {{#viewer.main}}
     {{outlet}}
   {{/viewer.main}}
-{{/docs-viewer}}
+</DocsViewer>
