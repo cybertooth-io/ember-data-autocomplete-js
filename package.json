@@ -43,7 +43,7 @@
     "autocomplete.js-cybertooth.io": "^0.36.0-cybertooth.1",
     "ember-auto-import": "^1.5.3",
     "ember-cli-babel": "^7.13.0",
-    "ember-cli-htmlbars": "^4.2.0",
+    "ember-cli-htmlbars": "^5.1.1",
     "faker": "^4.1.0"
   },
   "devDependencies": {
