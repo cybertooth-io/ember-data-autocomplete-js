@@ -2,31 +2,31 @@
 
 ## Installation
 
-* `git clone git@github.com:cybertooth-io/ember-data-autocomplete-js.git`
-* `cd ember-data-autocomplete-js`
-* `yarn`
+- `git clone git@github.com:cybertooth-io/ember-data-autocomplete-js.git`
+- `cd ember-data-autocomplete-js`
+- `yarn`
 
 ### Building The Add-on
 
-* `ember b`
-* `ember build`
+- `ember b`
+- `ember build`
 
 ### Linting
 
-* `yarn run lint:hbs`
-* `yarn run lint:js`
-* `yarn run lint:js -- --fix`
+- `yarn run lint:hbs`
+- `yarn run lint:js`
+- `yarn run lint:js -- --fix`
 
 ### Running tests
 
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `ember try:each` – Runs the test suite against multiple Ember versions
+- `ember test` – Runs the test suite on the current Ember version
+- `ember test --server` – Runs the test suite in "watch mode"
+- `ember try:each` – Runs the test suite against multiple Ember versions
 
 ### Running The Dummy Application
 
-* `ember server`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+- `ember server`
+- Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
 
@@ -51,6 +51,7 @@ $ yarn link
 # from the other project that depends on this add-on
 $ yarn link ember-data-autocomplete-js
 ```
+
 In your other project's `package.json`, set `"ember-data-autocomplete-js": "*",`
 
 Note: I've actually had to go into my _other project_ and put this into its `package.json`:
