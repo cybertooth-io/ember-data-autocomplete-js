@@ -5980,9 +5980,9 @@ ember-data-storefront@^0.17.0:
     ember-inflector "^3.0.1"
 
 ember-decorators-polyfill@^1.0.4:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/ember-decorators-polyfill/-/ember-decorators-polyfill-1.1.2.tgz#b5f79c3598b0f979976a82c97a13c26df7a59705"
-  integrity sha512-BEi6+2Phsy70UjZMZD1J1+eTjSYAmBecT7K6lQxRFJzbomQftN6rQsWTGNoAmUn8dzDMam2McGvSG5M12cMBTg==
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/ember-decorators-polyfill/-/ember-decorators-polyfill-1.1.5.tgz#49203c302ea4486618ba4866923ec657cf2c9f3d"
+  integrity sha512-O154i8sLoVjsiKzSqxGRfHGr+N+drT6mRrLDbNgJCnW/V5uLg/ppZFpUsrdxuXnp5Q9us3OfXV1nX2CH+7bUpA==
   dependencies:
     ember-cli-babel "^7.1.2"
     ember-cli-version-checker "^3.1.3"
