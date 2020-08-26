@@ -5894,9 +5894,9 @@ ember-composable-helpers@^2.3.1:
     ember-maybe-import-regenerator "^0.1.6"
 
 ember-data-storefront@^0.17.0:
-  version "0.17.2"
-  resolved "https://registry.yarnpkg.com/ember-data-storefront/-/ember-data-storefront-0.17.2.tgz#a5cb677412e9b0f7b1f2f4ba9d508163af905cd7"
-  integrity sha512-BBLONwwLRi1dyhWsLATTbIwPlaep8HRjvMOgZuwk372CHDViD8/CjPTXuVFeN1ze48JrE01POBQwSr5LnM2oMw==
+  version "0.17.3"
+  resolved "https://registry.yarnpkg.com/ember-data-storefront/-/ember-data-storefront-0.17.3.tgz#aa879efb855de8e54cb8114e33f178515579aa85"
+  integrity sha512-U9l4riKYzgN2bDBUc3Olq7y4AE26LW5g8xS0FNkHdIrFSaUaDtnbbj6QcU6TSO7OjfHzj5htAPq6l4dqJ4rodw==
   dependencies:
     ember-cli-babel "^7.5.0"
     global "^4.3.2"
