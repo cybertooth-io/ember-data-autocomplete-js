@@ -1,4 +1,4 @@
-name: 'Build, Test, Publish Coverage'
+name: "Build, Test, Publish Coverage"
 on: push
 
 jobs:
@@ -6,7 +6,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     env:
-      CI: 'true'
+      CI: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -34,14 +34,13 @@ jobs:
       - name: Lint (js)
         run: yarn lint:js
       - name: Run Tests
-        run: yarn test
+        run: yarn test:ember
         env:
-          COVERAGE: 'true'
+          COVERAGE: "true"
       - name: Report Coverage
         run: node_modules/.bin/codeclimate-test-reporter < coverage/lcov.info
         env:
           CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
-
 #  ember-try:
 #    name: ember-try (${{ matrix.scenario }})
 #    needs: test
