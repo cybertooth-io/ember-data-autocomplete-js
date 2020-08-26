@@ -1,0 +1,82 @@
+{
+  "extensions": {
+    "recommendations": [
+      "anjali.clipboard-history",
+      "msjsdiag.debugger-for-chrome",
+      "dbaeumer.vscode-eslint",
+      "vtrois.gitmoji-vscode",
+      "cmstead.jsrefactor",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "austenc.tailwind-docs",
+      "hbenl.vscode-test-explorer",
+      "gruntfuggly.todo-tree",
+      "visualstudioexptteam.vscodeintellicode",
+      "vscode-icons-team.vscode-icons",
+      "stylelint.vscode-stylelint",
+      "maptz.camelcasenavigation",
+      "mgmcdermott.vscode-language-babel",
+      "streetsidesoftware.code-spell-checker",
+      "editorconfig.editorconfig",
+      "felixrieseberg.vsc-ember-cli",
+      "candidmetrics.ember-decorator-snippets",
+      "candidmetrics.ember-module-snippets",
+      "josa.ember-related-files",
+      "andrejunges.handlebars",
+      "wix.vscode-import-cost",
+      "christian-kohler.npm-intellisense",
+      "christian-kohler.path-intellisense",
+      "esbenp.prettier-vscode",
+      "stylelint.vscode-stylelint",
+      "lifeart.vscode-ember-unstable",
+      "pflannery.vscode-versionlens",
+      "adambaker.vsc-prettier-glimmer",
+      "redhat.vscode-yaml",
+      "stuart.unique-window-colors"
+    ],
+    "unwantedRecommendations": []
+  },
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[handlebars]": {
+      "editor.defaultFormatter": "AdamBaker.vsc-prettier-glimmer"
+    },
+    // tailwindcss @apply rules cause vscode to produce error-squiggles (https://stackoverflow.com/a/62017939/545137)
+    "css.validate": false,
+    "cSpell.enabled": true,
+    "cSpell.ignorePaths": [
+      "**/package-lock.json",
+      "**/node_modules/**",
+      "**/vscode-extension/**",
+      "**/.git/objects/**",
+      ".vscode",
+      "*.code-workspace"
+    ],
+    "cSpell.words": [],
+    // by default all files will be formatted with prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [120],
+    "editor.tabSize": 2,
+    "editor.wordWrapColumn": 120,
+    // triggering emmet expansion with tab-key; like Jetbrains IDEs
+    "emmet.triggerExpansionOnTab": true,
+    "stylelint.enable": true,
+    "tailwindCSS.emmetCompletions": true,
+    "editor.formatOnSave": true,
+    "gitmoji.outputType": "code",
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#005983",
+      "activityBar.foreground": "#F2FAFD",
+      "titleBar.activeBackground": "#0095DA",
+      "titleBar.activeForeground": "#F2FAFD"
+    },
+    "emmet.includeLanguages": {
+      "javascript": "html",
+      "handlebars": "html"
+    }
+  }
+}
