@@ -2,14 +2,13 @@
 
 Ember Data driven `autocomplete.js` text input.
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a5acd1c21cc1fddb227b/maintainability)](https://codeclimate.com/github/cybertooth-io/ember-data-autocomplete-js/maintainability)
-[![CircleCI](https://circleci.com/gh/cybertooth-io/ember-data-autocomplete-js.svg?style=svg)](https://circleci.com/gh/cybertooth-io/ember-data-autocomplete-js)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a5acd1c21cc1fddb227b/maintainability)](https://codeclimate.com/github/cybertooth-io/ember-data-autocomplete-js/maintainability) [![Build, Test, Publish Coverage](https://github.com/cybertooth-io/ember-data-autocomplete-js/workflows/Build,%20Test,%20Publish%20Coverage/badge.svg)](https://github.com/cybertooth-io/ember-data-autocomplete-js/actions)
 
 ## Compatibility
 
-* Ember.js v3.12 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
+- Ember.js v3.12 or above
+- Ember CLI v2.13 or above
+- Node.js v10 or above
 
 ## Docs
 
