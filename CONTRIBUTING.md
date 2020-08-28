@@ -68,7 +68,7 @@ $ yarn unlink
 $ yarn unlink ember-data-autocomplete-js
 ```
 
-## Commiting Code
+## Committing Code
 
 Fork and submit a pull request.
 

@@ -31,8 +31,7 @@
       "lifeart.vscode-ember-unstable",
       "pflannery.vscode-versionlens",
       "adambaker.vsc-prettier-glimmer",
-      "redhat.vscode-yaml",
-      "stuart.unique-window-colors"
+      "redhat.vscode-yaml"
     ],
     "unwantedRecommendations": []
   },
