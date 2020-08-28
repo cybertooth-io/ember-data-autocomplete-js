@@ -1,13 +1,12 @@
 /** @documenter esdoc */
 
-import { classNames } from '@ember-decorators/component';
-import TextField from '@ember/component/text-field';
-import { computed } from '@ember/object';
-import { later } from '@ember/runloop';
-import { inject as service } from '@ember/service';
-import { isPresent } from '@ember/utils';
+import TextField from "@ember/component/text-field";
+import { computed } from "@ember/object";
+import { later } from "@ember/runloop";
+import { inject as service } from "@ember/service";
+import { isPresent } from "@ember/utils";
 // Why `autocomplete.js-cybertooth.io`? https://github.com/algolia/autocomplete.js/issues/282
-import autocomplete from 'autocomplete.js-cybertooth.io/dist/autocomplete';
+import autocomplete from "autocomplete.js-cybertooth.io/dist/autocomplete";
 
 /**
  * This `{{autocomplete}}` component is a textbox powered by `autocomplete.js`
@@ -16,9 +15,7 @@ import autocomplete from 'autocomplete.js-cybertooth.io/dist/autocomplete';
  *
  * @extends {TextField}
  */
-export default @classNames('ember-data-autocomplete-js')
-class Autocomplete extends TextField {
-
+export default class Autocomplete extends TextField {
   /** Services
    ------------------------------------------------------------------------------------------------------------------ */
 
@@ -81,7 +78,7 @@ class Autocomplete extends TextField {
    * @argument
    * @type {String|function}
    */
-  displayKey = 'id';
+  displayKey = "id";
 
   /**
    * Required.
@@ -95,7 +92,7 @@ class Autocomplete extends TextField {
    * @argument
    * @type {String}
    */
-  filter = '';
+  filter = "";
 
   /**
    * The [globalOptions](https://github.com/algolia/autocomplete.js#global-options) for
@@ -157,17 +154,17 @@ class Autocomplete extends TextField {
     autoWidth: true,
     clearOnSelected: false,
     cssClasses: {
-      cursor: 'cursor',
-      dataset: 'dataset',
-      dropdownMenu: 'dropdown-menu',
-      empty: 'empty',
-      hint: 'hint',
-      input: 'input',
+      cursor: "cursor",
+      dataset: "dataset",
+      dropdownMenu: "dropdown-menu",
+      empty: "empty",
+      hint: "hint",
+      input: "input",
       noPrefix: false,
-      prefix: 'aa',
-      root: 'algolia-autocomplete',
-      suggestion: 'suggestion',
-      suggestions: 'suggestions'
+      prefix: "aa",
+      root: "algolia-autocomplete",
+      suggestion: "suggestion",
+      suggestions: "suggestions",
     },
     debug: false,
     dropdownMenuContainer: null,
@@ -180,8 +177,8 @@ class Autocomplete extends TextField {
       dropdownMenu: null,
       header: null,
       footer: null,
-      empty: null
-    }
+      empty: null,
+    },
   };
 
   /**
@@ -197,7 +194,7 @@ class Autocomplete extends TextField {
    * @argument
    * @type {String}
    */
-  include = '';
+  include = "";
 
   /**
    * Required.
@@ -211,7 +208,7 @@ class Autocomplete extends TextField {
    * @argument
    * @type {String}
    */
-  modelName = '';
+  modelName = "";
 
   /**
    * Optional & Experimental.
@@ -231,7 +228,7 @@ class Autocomplete extends TextField {
    */
   page = {
     number: 1,
-    size: 10
+    size: 10,
   };
 
   /**
@@ -247,7 +244,7 @@ class Autocomplete extends TextField {
    * @argument
    * @type {String}
    */
-  sort = '';
+  sort = "";
 
   /**
    * Optional.
@@ -302,7 +299,7 @@ class Autocomplete extends TextField {
    * @private
    * @return {string}
    */
-  @computed('elementId') get _selector() {
+  @computed("elementId") get _selector() {
     return `#${this.elementId}`;
   }
 
@@ -465,7 +462,7 @@ class Autocomplete extends TextField {
    * @private
    */
   _fixAutofocus() {
-    if (this.element.getAttributeNames().includes('autofocus')) {
+    if (this.element.getAttributeNames().includes("autofocus")) {
       later(1, () => {
         this.element.focus();
       });
@@ -480,34 +477,40 @@ class Autocomplete extends TextField {
    */
   _initializeAutocomplete() {
     const self = this;
-    this._autocompleteInstance = autocomplete(this._selector, this.globalOptions, [{
-      debounce: self.debounce,
-      displayKey: this.displayKey,
-      name: `dataset-id-${this.elementId}`,
-      source: function(query, callback) {
-        self.store
-          .loadRecords(self.modelName, self._queryOptions(query))
-          .then(response => {
-            const noWay = [];
-            response.forEach(modelInstance => noWay.push(modelInstance));
-            callback(noWay);
-            return response;
-          });
-      },
-      templates: {
-        suggestion: this.suggestion ? this.suggestion : null
-      }
-    }])
-      .on('autocomplete:autocompleted', this.autocompleted)
-      .on('autocomplete:closed', this.closed)
-      .on('autocomplete:cursorchanged', this.cursorChanged)
-      .on('autocomplete:cursorremoved', this.cursorRemoved)
-      .on('autocomplete:empty', this.empty)
-      .on('autocomplete:opened', this.opened)
-      .on('autocomplete:redrawn', this.redrawn)
-      .on('autocomplete:selected', this.selected)
-      .on('autocomplete:shown', this.shown)
-      .on('autocomplete:updated', this.updated);
+    this._autocompleteInstance = autocomplete(
+      this._selector,
+      this.globalOptions,
+      [
+        {
+          debounce: self.debounce,
+          displayKey: this.displayKey,
+          name: `dataset-id-${this.elementId}`,
+          source: function (query, callback) {
+            self.store
+              .loadRecords(self.modelName, self._queryOptions(query))
+              .then((response) => {
+                const noWay = [];
+                response.forEach((modelInstance) => noWay.push(modelInstance));
+                callback(noWay);
+                return response;
+              });
+          },
+          templates: {
+            suggestion: this.suggestion ? this.suggestion : null,
+          },
+        },
+      ]
+    )
+      .on("autocomplete:autocompleted", this.autocompleted)
+      .on("autocomplete:closed", this.closed)
+      .on("autocomplete:cursorchanged", this.cursorChanged)
+      .on("autocomplete:cursorremoved", this.cursorRemoved)
+      .on("autocomplete:empty", this.empty)
+      .on("autocomplete:opened", this.opened)
+      .on("autocomplete:redrawn", this.redrawn)
+      .on("autocomplete:selected", this.selected)
+      .on("autocomplete:shown", this.shown)
+      .on("autocomplete:updated", this.updated);
   }
 
   /**
