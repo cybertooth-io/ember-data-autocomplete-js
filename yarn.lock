@@ -600,7 +600,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/plugin-transform-block-scoping@^7.10.4", "@babel/plugin-transform-block-scoping@^7.7.4", "@babel/plugin-transform-block-scoping@^7.8.3":
+"@babel/plugin-transform-block-scoping@^7.10.4", "@babel/plugin-transform-block-scoping@^7.8.3":
   version "7.11.1"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-block-scoping/-/plugin-transform-block-scoping-7.11.1.tgz#5b7efe98852bef8d652c0b28144cd93a9e4b5215"
   integrity sha512-00dYeDE0EVEHuuM+26+0w/SCL0BH2Qy7LwHuI4Hi4MH5gkC8/AqMN5uWFJIsoXZrAphiMm1iXzBw6L2T+eA0ew==
@@ -1161,29 +1161,6 @@
     ember-cli-path-utils "^1.0.0"
     ember-cli-typescript "^3.1.3"
     heimdalljs "^0.3.0"
-
-"@ember-decorators/component@^6.1.1":
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/component/-/component-6.1.1.tgz#b360dc4fa8e576ee1c840879399ef1745fd96e06"
-  integrity sha512-Cj8tY/c0MC/rsipqsiWLh3YVN72DK92edPYamD/HzvftwzC6oDwawWk8RmStiBnG9PG/vntAt41l3S7HSSA+1Q==
-  dependencies:
-    "@ember-decorators/utils" "^6.1.1"
-    ember-cli-babel "^7.1.3"
-
-"@ember-decorators/object@^6.1.1":
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/object/-/object-6.1.1.tgz#50c922f5ac9af3ddd381cb6a43a031dfd9a70c7a"
-  integrity sha512-cb4CNR9sRoA31J3FCOFLDuR9ztM4wO9w1WlS4JeNRS7Z69SlB/XSXB/vplA3i9OOaXEy/zKWbu5ndZrHz0gvLw==
-  dependencies:
-    "@ember-decorators/utils" "^6.1.1"
-    ember-cli-babel "^7.1.3"
-
-"@ember-decorators/utils@^6.1.1":
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/@ember-decorators/utils/-/utils-6.1.1.tgz#6b619814942b4fb3747cfa9f540c9f05283d7c5e"
-  integrity sha512-0KqnoeoLKb6AyoSU65TRF5T85wmS4uDn06oARddwNPxxf/lt5jQlh41uX3W7V/fWL9tPu8x1L1Vvpc80MN1+YA==
-  dependencies:
-    ember-cli-babel "^7.1.3"
 
 "@ember/edition-utils@^1.2.0":
   version "1.2.0"
@@ -6317,7 +6294,7 @@ ember-composable-helpers@^2.4.0:
     ember-compatibility-helpers "^1.2.0"
     ember-maybe-import-regenerator "^0.1.6"
 
-ember-data-storefront@^0.17.0:
+ember-data-storefront@^0.17.3:
   version "0.17.3"
   resolved "https://registry.yarnpkg.com/ember-data-storefront/-/ember-data-storefront-0.17.3.tgz#aa879efb855de8e54cb8114e33f178515579aa85"
   integrity sha512-U9l4riKYzgN2bDBUc3Olq7y4AE26LW5g8xS0FNkHdIrFSaUaDtnbbj6QcU6TSO7OjfHzj5htAPq6l4dqJ4rodw==
@@ -6325,7 +6302,7 @@ ember-data-storefront@^0.17.0:
     ember-cli-babel "^7.5.0"
     global "^4.3.2"
 
-"ember-data@2.x - 3.x", ember-data@^3.16.0:
+"ember-data@2.x - 3.x", ember-data@~3.20.0:
   version "3.20.0"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.20.0.tgz#613cfca5276b16b4f4bbfb35432e58f3e5a2d9f3"
   integrity sha512-eGZV5q4Ax7xavAfFS/dayO1KeSMrA0s6jSSf7TSX9KLfOz0jRMUrTwtMGxQtF0/MXB+k8/Hj1LlI5Y0lXFT9aA==
@@ -6344,24 +6321,6 @@ ember-data-storefront@^0.17.0:
     ember-cli-babel "^7.18.0"
     ember-cli-typescript "^3.1.3"
     ember-inflector "^3.0.1"
-
-ember-decorators-polyfill@^1.0.4:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/ember-decorators-polyfill/-/ember-decorators-polyfill-1.1.5.tgz#49203c302ea4486618ba4866923ec657cf2c9f3d"
-  integrity sha512-O154i8sLoVjsiKzSqxGRfHGr+N+drT6mRrLDbNgJCnW/V5uLg/ppZFpUsrdxuXnp5Q9us3OfXV1nX2CH+7bUpA==
-  dependencies:
-    ember-cli-babel "^7.1.2"
-    ember-cli-version-checker "^3.1.3"
-    ember-compatibility-helpers "^1.2.0"
-
-ember-decorators@^6.0.0:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/ember-decorators/-/ember-decorators-6.1.1.tgz#6d770f8999cf5a413a1ee459afd520838c0fc470"
-  integrity sha512-63vZPntPn1aqMyeNRLoYjJD+8A8obd+c2iZkJflswpDRNVIsp2m7aQdSCtPt4G0U/TEq2251g+N10maHX3rnJQ==
-  dependencies:
-    "@ember-decorators/component" "^6.1.1"
-    "@ember-decorators/object" "^6.1.1"
-    ember-cli-babel "^7.7.3"
 
 ember-disable-prototype-extensions@^1.1.3:
   version "1.1.3"
