@@ -1,13 +1,7 @@
 "use strict";
 
 module.exports = {
-  afterInstall(/*options*/) {
-    return this.addAddonsToProject({
-      packages: [],
-    }).then(() => {
-      return this.addPackagesToProject([]);
-    });
-  },
+  afterInstall(/*options*/) {},
 
   description: "Ember Data driven autocomplete.js text input.",
 
