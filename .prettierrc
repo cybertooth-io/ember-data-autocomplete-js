@@ -1,0 +1,15 @@
+{
+  "arrowParens": "avoid",
+  "printWidth": 120,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "overrides": [
+    {
+      "files": "*.hbs",
+      "options": {
+        "parser": "glimmer",
+        "singleQuote": false
+      }
+    }
+  ]
+}

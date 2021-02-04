@@ -10,4 +10,3 @@ You can also use the legacy handlebars invocation of the autocomplete component.
 
 Exactly the same as the Basic example except this time we invoked the component
 with handlebars syntax.
-

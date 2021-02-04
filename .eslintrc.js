@@ -5,17 +5,15 @@ module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaFeatures: {
+      legacyDecorators: true,
+    },
   },
-  plugins: [
-    'ember'
-  ],
-  extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended'
-  ],
+  plugins: ['ember', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:ember/recommended'],
   env: {
-    browser: true
+    browser: true,
   },
   rules: {},
   overrides: [
@@ -23,29 +21,25 @@ module.exports = {
     {
       files: [
         '.eslintrc.js',
+        '.prettierrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
         'index.js',
         'testem.js',
         'blueprints/*/index.js',
         'config/**/*.js',
-        'tests/dummy/config/**/*.js'
+        'tests/dummy/config/**/*.js',
       ],
-      excludedFiles: [
-        'addon/**',
-        'addon-test-support/**',
-        'app/**',
-        'tests/dummy/app/**'
-      ],
+      excludedFiles: ['addon/**', 'addon-test-support/**', 'app/**', 'tests/dummy/app/**'],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: 'script',
       },
       env: {
         browser: false,
-        node: true
+        node: true,
       },
       plugins: ['node'],
-      extends: ['plugin:node/recommended']
-    }
-  ]
+      extends: ['plugin:node/recommended'],
+    },
+  ],
 };

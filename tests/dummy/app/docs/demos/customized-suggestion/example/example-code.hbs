@@ -1,4 +1,4 @@
-{{!-- @formatter:off --}}
+{{! @formatter:off }}
 <DocsSnippet @name="customized-suggestion-controller" @language="javascript">
   import {action} from '@ember/object';
   import Controller from '@ember/controller';
@@ -10,8 +10,16 @@
     },
 
     suggestionCustomized(user) {
-      return `<p>${user.fullName} - ${user.email}<br><small>DOB: ${user.dateOfBirth.toLocaleString()}</small></p>`;
+      return `
+  <p>
+    ${user.fullName} - ${user.email}
+    <br />
+    <small>
+      DOB: ${user.dateOfBirth.toLocaleString()}
+    </small>
+  </p>
+  `;
     }
   });
 </DocsSnippet>
-{{!-- @formatter:on--}}
+{{! @formatter:on}}

@@ -1,10 +1,10 @@
 # Styling
 
-Styling is trivial and is up to you.  You are responsible for adding this CSS/SCSS to your app.
+Styling is trivial and is up to you. You are responsible for adding this CSS/SCSS to your app.
 
 ## Algolia Default
 
-Algolia `autocomplete.js` gives you a helping hand in their 
+Algolia `autocomplete.js` gives you a helping hand in their
 [look and feel page](https://github.com/algolia/autocomplete.js/blob/master/README.md#look-and-feel).
 
 Poaching from their site, simply add this to your `app/styles/app.css` (or `app/styles/app.scss` if you're
@@ -15,7 +15,8 @@ using SASS:
   width: 100%;
 }
 
-.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+.algolia-autocomplete .aa-input,
+.algolia-autocomplete .aa-hint {
   width: 100%;
 }
 
@@ -36,7 +37,7 @@ using SASS:
 }
 
 .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-  background-color: #B2D7FF;
+  background-color: #b2d7ff;
 }
 
 .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
@@ -47,16 +48,17 @@ using SASS:
 
 ## Bootstrap 4'ish
 
-I found an answer on 
+I found an answer on
 [Stackoverflow with a relatively pleasant example in CodePen](https://stackoverflow.com/a/46787947/545137).
-Give this a try if you want. 
+Give this a try if you want.
 
 ```css
 .algolia-autocomplete {
   width: 100%;
 }
 
-.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+.algolia-autocomplete .aa-input,
+.algolia-autocomplete .aa-hint {
   width: 100%;
 }
 
@@ -88,8 +90,8 @@ Give this a try if you want.
   background: #fff;
   z-index: 0;
   top: -7px;
-  border-top: 1px solid #D9D9D9;
-  border-right: 1px solid #D9D9D9;
+  border-top: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
   transform: rotate(-45deg);
   border-radius: 2px;
   z-index: 999;
@@ -102,10 +104,10 @@ Give this a try if you want.
   z-index: 1000;
 }
 
-.aa-dropdown-menu [class^="aa-dataset-"] {
+.aa-dropdown-menu [class^='aa-dataset-'] {
   background-color: #fff;
   position: relative;
-  border: solid 1px #D9D9D9;
+  border: solid 1px #d9d9d9;
   border-radius: 3px;
   overflow: auto;
   padding: 8px 8px 8px;
@@ -114,7 +116,6 @@ Give this a try if you want.
 .aa-dropdown-menu * {
   box-sizing: border-box;
 }
-
 
 .aa-suggestion {
   font-size: 1.1em;
@@ -139,7 +140,8 @@ Give this a try if you want.
   background: #eee;
 }
 ```
+
 ## And Guess What?
 
-If you don't like the default styling, you can change it.  But I'm sure not going
+If you don't like the default styling, you can change it. But I'm sure not going
 to explain that here.

@@ -1,14 +1,14 @@
 <DocsDemo as |demo|>
   {{#demo.example name="customized-suggestion-template"}}
     <Autocomplete
-        autofocus="true"
-        class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
-        placeholder="Customized Suggestion - Begin Typing"
-        @displayKey="fullName"
-        @filter="by_name_search"
-        @modelName="user"
-        @selected={{this.chooseUser}}
-        @suggestion={{this.suggestionCustomized}}
+      autofocus="true"
+      class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
+      placeholder="Customized Suggestion - Begin Typing"
+      @displayKey="fullName"
+      @filter="by_name_search"
+      @modelName="user"
+      @selected={{this.chooseUser}}
+      @suggestion={{this.suggestionCustomized}}
     />
   {{/demo.example}}
 

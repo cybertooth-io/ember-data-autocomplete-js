@@ -46,13 +46,13 @@ any of this _query_ code**:
 
 ```javascript
 // ...
-this.store.query("some-model-name", {
+this.store.query('some-model-name', {
   filter: {
-    some_filter: "some-filter-value",
-    the_filter_using_autocomplete_text: "textbox value",
+    some_filter: 'some-filter-value',
+    the_filter_using_autocomplete_text: 'textbox value',
   },
-  include: "some-relationship",
-  sort: "some-column",
+  include: 'some-relationship',
+  sort: 'some-column',
 });
 // ...
 ```
