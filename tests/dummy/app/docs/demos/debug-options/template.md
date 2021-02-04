@@ -5,7 +5,7 @@ options list will disappear after you click on an option.
 
 Turn the global option `debug` to `true` so that you can _right-click_ to view the source of
 your options.
- 
+
 ## Try It
 
 {{docs/demos/debug-options/example}}

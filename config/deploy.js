@@ -5,8 +5,8 @@ module.exports = function (deployTarget) {
   let ENV = {
     build: {},
     git: {
-      commitMessage: '[ci skip]'
-    }
+      commitMessage: '[ci skip]',
+    },
   };
 
   if (deployTarget === 'development') {

@@ -1,16 +1,16 @@
 <DocsDemo as |demo|>
   {{#demo.example name="page-size-template"}}
     <Autocomplete
-        autofocus="true"
-        class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
-        placeholder="FIVE Options Returned - Begin Typing"
-        type="search"
-        @displayKey="fullName"
-        @filter="by_name_search"
-        @globalOptions={{hash hint=false}}
-        @modelName="user"
-        @page={{hash size=5}}
-        @selected={{this.chooseUser}}
+      autofocus="true"
+      class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
+      placeholder="FIVE Options Returned - Begin Typing"
+      type="search"
+      @displayKey="fullName"
+      @filter="by_name_search"
+      @globalOptions={{hash hint=false}}
+      @modelName="user"
+      @page={{hash size=5}}
+      @selected={{this.chooseUser}}
     />
   {{/demo.example}}
 

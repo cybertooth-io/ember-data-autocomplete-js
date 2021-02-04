@@ -1,15 +1,15 @@
 <DocsDemo as |demo|>
   {{#demo.example name="empty-template"}}
     <Autocomplete
-        autofocus="true"
-        class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
-        placeholder="Empty Message - Begin Typing Nonsense"
-        type="search"
-        @displayKey="fullName"
-        @filter="by_name_search"
-        @globalOptions={{hash templates=(hash empty="<p><em>Nothing Found</em></p>")}}
-        @modelName="user"
-        @selected={{this.chooseUser}}
+      autofocus="true"
+      class="docs-shadow docs-appearance-none docs-border docs-rounded docs-w-full docs-py-2 docs-px-3 docs-text-gray-700 docs-leading-tight focus:docs-outline-none focus:docs-shadow-outline"
+      placeholder="Empty Message - Begin Typing Nonsense"
+      type="search"
+      @displayKey="fullName"
+      @filter="by_name_search"
+      @globalOptions={{hash templates=(hash empty="<p><em>Nothing Found</em></p>")}}
+      @modelName="user"
+      @selected={{this.chooseUser}}
     />
   {{/demo.example}}
 

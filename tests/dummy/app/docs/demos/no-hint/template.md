@@ -1,7 +1,7 @@
 # Turning Off `hint`
 
 The hint is the muted text that appears in the textbox when you start typing an option
-that is a near match.  By default, hint is enabled.  To turn it off, toggle the `hint` 
+that is a near match. By default, hint is enabled. To turn it off, toggle the `hint`
 global option to false.
 
 ## Try It
