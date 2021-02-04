@@ -1,12 +1,12 @@
 /** @documenter esdoc */
 
+// Why `autocomplete.js-cybertooth.io`? https://github.com/algolia/autocomplete.js/issues/282
+import autocomplete from 'autocomplete.js-cybertooth.io/dist/autocomplete';
+
 import TextField from '@ember/component/text-field';
-import { computed } from '@ember/object';
 import { later } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
-// Why `autocomplete.js-cybertooth.io`? https://github.com/algolia/autocomplete.js/issues/282
-import autocomplete from 'autocomplete.js-cybertooth.io/dist/autocomplete';
 
 /**
  * This `{{autocomplete}}` component is a textbox powered by `autocomplete.js`
@@ -299,7 +299,7 @@ export default class Autocomplete extends TextField {
    * @private
    * @return {string}
    */
-  @computed('elementId') get _selector() {
+  get _selector() {
     return `#${this.elementId}`;
   }
 

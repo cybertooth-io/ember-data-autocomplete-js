@@ -45,7 +45,7 @@
     "lint:js:fix": "eslint . --fix",
     "prettier": "prettier --write '**/*.{css,hbs,html,js,json,md,ts,yaml,yml}'",
     "start": "ember serve",
-    "test": "npm-run-all lint test:*",
+    "test": "npm-run-all lint test:ember",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each"
   },
