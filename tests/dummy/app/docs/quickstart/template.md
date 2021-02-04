@@ -20,7 +20,7 @@ about the user that was chosen from the autocomplete.js text input.
 
 {{#docs-snippet name="quickstart-controller.js" title="app/controllers/.../somewhere.js"}}
 // ...
-@action onSelected(event, user/_, dataset, context_/) {
+@action onSelected(event, user, dataset, context) {
 alert(`You chose ${user.firstName}!!!`);
 return true;
 }

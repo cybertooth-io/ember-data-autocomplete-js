@@ -29,7 +29,7 @@ export default class UserModel extends Model {
     /** Computed
      ------------------------------------------------- */
 
-    @computed('firstName', 'lastName') get fullName() {
+    get fullName() {
       return `${this.firstName} ${this.lastName}`;
     }
 
@@ -91,7 +91,7 @@ import { action } from '@ember/object'
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-@action chooseUser(event, user/_, dataset, context_/) {
+@action chooseUser(event, user, dataset, context) {
 // do something with the chosen `user` model instance
 alert(`${user.firstName}'s birth date is ${user.dateOfBirth.toISOString()}`)
 return true;
