@@ -1,6 +1,6 @@
 {
   "name": "ember-data-autocomplete-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Ember Data driven autocomplete.js text input.",
   "keywords": [
     "ember-addon",
