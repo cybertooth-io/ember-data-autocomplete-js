@@ -1,5 +1,5 @@
-import Component from '@ember/component';
 import { action } from '@ember/object';
+import Component from '@glimmer/component';
 
 export default class Example extends Component {
   @action

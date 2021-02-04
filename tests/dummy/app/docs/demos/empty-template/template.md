@@ -11,7 +11,7 @@ The empty template needs to be defined to handle when there are no results.
 To edit the `autocomplete.js` global option you simply need to use the `hash` helper to pass overriding
 arguments to the component.
 
-In this case we want to edit the `template` hash embedded within the global options.  So to edit the
+In this case we want to edit the `template` hash embedded within the global options. So to edit the
 "empty" template we will supply the following to `@globalOptions`:
 
 ```handlebars

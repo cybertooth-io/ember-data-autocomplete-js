@@ -13,14 +13,14 @@ module.exports = function (environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
 
   if (environment === 'development') {
@@ -47,7 +47,7 @@ module.exports = function (environment) {
     // Allow ember-cli-addon-docs to update the rootURL in compiled assets
     ENV.rootURL = 'ADDON_DOCS_ROOT_URL';
     ENV['ember-cli-mirage'] = {
-      enabled: true
+      enabled: true,
     };
   }
 

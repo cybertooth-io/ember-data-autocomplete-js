@@ -5,7 +5,7 @@
 <aside>Looking for the quickstart? {{docs-link 'Click here' 'docs.quickstart'}}.</aside>
 
 When we started using Ember back in 2014 Twitter's Typeahead component was quite popular
-and we incorporated it into our application.  Since the original has been abandoned, 
+and we incorporated it into our application. Since the original has been abandoned,
 I'm now creating this addon to use Algolia's forked and maintained
 [autocomplete.js](https://github.com/algolia/autocomplete.js) project.
 

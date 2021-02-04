@@ -2,7 +2,6 @@ import { Factory } from 'ember-cli-mirage';
 import faker from 'faker';
 
 export default Factory.extend({
-
   active() {
     // return true;
     return faker.random.boolean();
@@ -22,5 +21,5 @@ export default Factory.extend({
 
   lastName() {
     return faker.name.lastName();
-  }
+  },
 });

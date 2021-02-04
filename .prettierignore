@@ -1,3 +1,9 @@
+# ignoring this file created by VS Code Ember extension
+/jsconfig.json
+
+# ignoring file that is created by ember storybook
+/.storybook/preview-head.html
+
 # unconventional js
 /blueprints/*/files/
 /vendor/
