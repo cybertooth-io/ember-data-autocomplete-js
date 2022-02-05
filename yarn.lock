@@ -7724,10 +7724,10 @@ ember-svg-jar@^2.2.3:
     mkdirp "^0.5.1"
     path-posix "^1.0.0"
 
-ember-template-lint-plugin-prettier@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ember-template-lint-plugin-prettier/-/ember-template-lint-plugin-prettier-2.0.0.tgz#d999228fc375e9d8228296c1c80eaa192197817b"
-  integrity sha512-lLdpaYAgn2m5U4Y6bwpiwgFdn7SrpiO1rE1qUHM79LE+yAc26qyDEWNIZfRj9BrhmJMhWZKKOasCJnZ3b4PvIw==
+ember-template-lint-plugin-prettier@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/ember-template-lint-plugin-prettier/-/ember-template-lint-plugin-prettier-3.0.1.tgz#af117d12e1e0ab2037efb1e538c8b638197e31b1"
+  integrity sha512-mMDxJGp2eFqNs0fu1uiU13P5XOg+NEvzs+0BTEPtnWZ0m6t60jPvFFwKi4h62SRP4GJdtoP7WCXDo442VJZzEQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
