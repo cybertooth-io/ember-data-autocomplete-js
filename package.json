@@ -47,7 +47,8 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:ember",
     "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
+    "test:ember-compatibility": "ember try:each",
+    "update:browserslist": "npx browserslist@latest --update-db"
   },
   "dependencies": {
     "autocomplete.js-cybertooth.io": "^0.36.0-cybertooth.1",
