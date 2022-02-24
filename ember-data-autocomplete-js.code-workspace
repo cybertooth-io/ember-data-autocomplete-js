@@ -41,9 +41,6 @@
     }
   ],
   "settings": {
-    "[handlebars]": {
-      "editor.defaultFormatter": "AdamBaker.vsc-prettier-glimmer"
-    },
     // tailwindcss @apply rules cause vscode to produce error-squiggles (https://stackoverflow.com/a/62017939/545137)
     "css.validate": false,
     "cSpell.enabled": true,

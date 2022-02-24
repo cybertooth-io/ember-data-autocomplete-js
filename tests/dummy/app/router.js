@@ -17,7 +17,6 @@ Router.map(function () {
       this.route('customized-suggestion');
       this.route('debug-options');
       this.route('empty-template');
-      this.route('handlebars-example');
       this.route('min-length');
       this.route('no-hint');
       this.route('page-size');

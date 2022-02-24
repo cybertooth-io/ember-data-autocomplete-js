@@ -5,9 +5,8 @@
   "trailingComma": "es5",
   "overrides": [
     {
-      "files": "*.hbs",
+      "files": "**/*.hbs",
       "options": {
-        "parser": "glimmer",
         "singleQuote": false
       }
     }
