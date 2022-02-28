@@ -18,8 +18,8 @@ import { isPresent } from '@ember/utils';
  * @public
  */
 export default class Autocomplete extends TextField {
-  /** Services
-   ------------------------------------------------------------------------------------------------------------------ */
+  /* Services
+  ------------------------------------------------------------------------------------------------------------------- */
 
   /**
    * The Ember Data `store` service that is used to query the data.
@@ -30,8 +30,8 @@ export default class Autocomplete extends TextField {
    */
   @service store;
 
-  /** Arguments
-   ------------------------------------------------------------------------------------------------------------------ */
+  /* Arguments
+  ------------------------------------------------------------------------------------------------------------------- */
 
   /**
    * Optional.
@@ -281,8 +281,9 @@ export default class Autocomplete extends TextField {
    */
   suggestion = undefined;
 
-  /** Computed
-   ------------------------------------------------------------------------------------------------------------------ */
+  /* Computed
+  ------------------------------------------------------------------------------------------------------------------- */
+
   /**
    * DO NOT TOUCH.
    *
@@ -294,8 +295,8 @@ export default class Autocomplete extends TextField {
    */
   _autocompleteInstance = null;
 
-  /** Actions
-   ------------------------------------------------------------------------------------------------------------------ */
+  /* Actions
+  ------------------------------------------------------------------------------------------------------------------- */
 
   /**
    * The html `#id` selector of this component used to instantiate the `Autocomplete` instance.
@@ -417,6 +418,7 @@ export default class Autocomplete extends TextField {
    * dataset the suggestion belongs to and a context object. The context contains a .selectionMethod
    * key that can be either click, enterKey, tabKey or blur, depending how the suggestion was selected.
    *
+   * @method selected
    * @param {Event} event - the event object
    * @param {Object} chosenItem - the Ember Data instance that was selected
    * @param {String} dataSetNameOrNumber - the name of the autocomplete.js dataset
@@ -434,6 +436,7 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when the dropdown menu of the autocomplete is shown (opened and non-empty).
    *
+   * @method shown
    * @param {Event} event - the event object
    * @return {shown} when the dropdown menu of the autocomplete is shown
    * @see https://github.com/algolia/autocomplete.js#events
@@ -446,6 +449,7 @@ export default class Autocomplete extends TextField {
   /**
    * Triggered when a dataset is rendered.
    *
+   * @method updated
    * @param {Event} event - the event object
    * @return {updated} when a dataset is rendered
    * @see https://github.com/algolia/autocomplete.js#events
@@ -455,8 +459,8 @@ export default class Autocomplete extends TextField {
     // override accordingly
   }
 
-  /** Methods
-   ------------------------------------------------------------------------------------------------------------------ */
+  /* Methods
+  ------------------------------------------------------------------------------------------------------------------- */
 
   /**
    * @method didInsertElement
@@ -479,8 +483,8 @@ export default class Autocomplete extends TextField {
     super.willDestroy(...arguments);
   }
 
-  /** Private
-   ------------------------------------------------------------------------------------------------------------------ */
+  /* Private
+  ------------------------------------------------------------------------------------------------------------------- */
 
   /**
    * Fixes Ember's weird bug where autofocus can't be re-triggered on subsequent transitions.
